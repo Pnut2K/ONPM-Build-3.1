@@ -492,7 +492,7 @@ Custom Stage SD File Loader [DukeItOut, Kapedani]
 .alias RSS_EXDATA_BONUS				= 0x8042C840 
 .alias ASL_DATA						= 0x8053F000
 .alias TRACKLIST_DATA				= 0x8053F200
-.alias CODEMENU_ASL_OPTION 			= 0x804E09DB
+.alias CODEMENU_ASL_LOC				= 0x804E00E8
 
 .macro lbd(<reg>, <addr>)
 {
@@ -626,7 +626,11 @@ Replay:
 	b notRandom
 Multiplayer:    	
 	li r31, 0x2 
-	%lbd (r12, CODEMENU_ASL_OPTION)
+	%lwd(r12, CODEMENU_ASL_LOC)		# Attempt to grab the address of the Alt Stage line from the Code Menu.
+	cmplwi r12, 0x00				# If the line doesn't exist though...
+	beq skipToCheck					# ... skip trying to load its value, cuz we'd crash otherwise.
+	lwz r12, 0x08(r12)				# If it *does* exist though, load its value!
+skipToCheck:
 	cmpwi r12, 0x1
 	beq+ startRandomLoop
 	%lbd (r31, RSS_EXDATA_BONUS)	# \ 
@@ -1043,23 +1047,6 @@ forceSkip:
 .include source/Project+/MyMusic.asm		# Integrated heavily into the above!
 .include source/Project+/Random.asm			# Custom random code to load expansion and non-striked slots, properly
 
-#####################################################################################################
-[Legacy TE] Hold Y on Smashville to Guarantee a Concert V2 (requires ASL Helper and SFSN) [DukeItOut]
-#####################################################################################################
-HOOK @ $8010FBC4
-{
-  lbz r0, 0(r31)
-  lis r5, 0x800B			# \ Access player input via ASL Helper
-  ori r5, r5, 0x9EA0		# |
-  lhz r12, 2(r5)			# /
-  andi. r12, r12, 0x800		# If holding Y (800)
-  beq- noConcert			# Attempt the code. (Only Smashville reads here.)
-  lis r12, 0x8010			# \
-  ori r12, r12, 0xFCA8		# | Go straight to triggering the concert mode substage ID 5
-  mtctr r12					# |
-  bctr 						# /
-noConcert:
-}
 ##########################################################
 KK Concert Music Only Triggers Via TLST File [DukeItOut]
 # 

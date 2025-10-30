@@ -48,7 +48,7 @@ op b 0xC @ $801C7450	# Have locations to place the following pointers
 	.GOTO->Table_Skip
 SFX_Table:		# Table size should be (sound effect count edited + 1) * 2 (i.e. 0 SFX = 2, 1 sound = 4, etc.)
 				# SFX ID, Volume (0-127)
-	uint16_t [92] |
+	uint16_t [120] |
 	| #
 	0x4FC, 99,  | # Luigi "Aww Yeah!"
 	| #
@@ -97,12 +97,27 @@ SFX_Table:		# Table size should be (sound effect count edited + 1) * 2 (i.e. 0 S
 	| #
 	0x414D, 90, | # Knuckles "HYAH!" used for Forward Smash, Side B and Neutral B
 	| #
-	0xB95B, 85, | # Fountain of Dreams Tangible Star 
-	0xB95C, 85, | # Fountain of Dreams Tangible Star 
-	0xB95D, 120,| # Fountain of Dreams Ambiance 
-	0xB95E, 50, | # Fountain of Dreams Left Pillar Ring  
-	0xB95F, 54, | # Fountain of Dreams Right Pillar Ring 
-	0xB960, 80, | # Fountain of Dreams Platform Fountain 
+	0xB95B, 82, | # Fountain of Dreams Tangible Star 
+	0xB95C, 82, | # Fountain of Dreams Tangible Star 
+	0xB95D, 79, | # Fountain of Dreams Ambiance 
+	0xB95E, 24, | # Fountain of Dreams Left Pillar Ring  
+	0xB95F, 25, | # Fountain of Dreams Right Pillar Ring 
+	0xB960, 39, | # Fountain of Dreams Platform Fountain 
+	| #
+	0xBA00, 48, | # Thwomp Appearance
+	0xBA01, 110,| # Thwomp Shaking
+	0xBA02, 120,| # Thwomp "ARNGH"
+	0xBA03, 50, | # Thwomp Woosh
+	0xBA04, 60, | # Bricks Breaking
+	0xBA05, 107,| # Bricks Reappearing
+	0xBA06, 62, | # Lava Ambiance
+	0xBA07, 108,| # Bowser Laugh
+	0xBA08, 79, | # Podoboo Appearance 1
+	0xBA09, 79, | # Podoboo Appearance 2
+	0xBA0A, 79, | # Podoboo Appearance 3
+	0xBA0B, 72, | # Podoboo Splash 1
+	0xBA0C, 72, | # Podoboo Splash 2
+	0xBA0D, 72, | # Podoboo Splash 3	
 	| #
 	0xFFFF, 0  	  # Make sure the table ends with this as a terminator!
 
@@ -127,7 +142,7 @@ Table_Skip:
 	.RESET
 
 ###########################################################################################################################################################
-[Project+] SoundBank Expansion System (RSBE.Ver) v2.3 [codes, DukeItOut, JOJI]
+[Project+] SoundBank Expansion System (RSBE.Ver) v2.5 [codes, DukeItOut, JOJI]
 # v1.1 - Kirbycide Fix + Voice clips volume fix + CSS Hiccup Fix
 # v1.2 - Fixes Mr. Resetti's brsar conflicts
 # v2.0 - Removed Sound Resource table occupation and made dynamic to better support resource size changes
@@ -135,6 +150,8 @@ Table_Skip:
 #			custom soundbank was being loaded in
 # v2.2 - Made pointers even more flexible to account for potential Sound Resource changes
 # v2.3 - Added a safety to prevent crashing when attempting to load a custom soundbank that failed to be found.
+# v2.4 - Fixed issue where sounds could be paired with the wrong soundbanks if not played the moment they are called.
+# v2.5 - Increased stability of sample check to avoid introduced error where the wrong bank was accessed sometimes.
 #
 # 90432134 references -> Sound Resource + 0x298934-to-0x29897F
 # 901A3090 references -> Written to CodeFlag+0x4
@@ -144,6 +161,7 @@ Table_Skip:
 ###########################################################################################################################################################
 
 .alias CustomSoundbankRange = 0x0144	# Custom soundbanks are 0x144 or higher
+.alias MaxCustomBank		= 0x0244	# 0x144-to-0x243
 .alias CustomSound_Lo		= 0x4000	# Custom sfx lower range 
 .alias CustomSound_Hi 		= 0xE500	# Custom sfx upper range 
 .alias normalMusic_Lo		= 0x26F9	# Brawl music lower range
@@ -208,119 +226,49 @@ TablePointer:
 SkipTable:
 	.RESET
 
-HOOK @ $801C7A00
-{
-  # lis r4, 0x901A;  ori r4, r4, 0x3090
-  lis r4, 0x801C; lwz r4, 0x75A4(r4)
-  lis r0, 0x0;  ori r0, r0, 0xC0DE
-  # stw r0, 0(r4)
-  stw r0, -0xC(r4)
-  lwz r0, 0(r3)						# Original operation
-  cmplwi r29, CustomSoundbankRange  
-  blt- %END%
-  cmpwi r0, MrResettiBank; beq %END%  
-  li r0, 0x244
-}
 HOOK @ $801C75A0
 {
 	addi r1, r1, 0x20 # Original operations, making room for pointer to tables
 	blr
 }
 
-HOOK @ $801C78EC
-{
-  mr r0, r3
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); lwz r3, -0xC(r3)
-  cmplwi r3, 0xC0DE
-  mr r3, r0
-  lwz r0, 0(r3)	# Original operation
-  bne- %END%
-  cmpwi r0, MrResettiBank; beq %END%
-  cmplwi r30, CustomSoundbankRange;  blt- %END%
-  li r0, 0x244
-}
+#### Treats the Soundbank Count as the custom range for the normal brsar ####
 HOOK @ $801C7BD8
 {
-  mr r0, r3
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); lwz r3, -0xC(r3)
-  cmplwi r3, 0xC0DE
-  mr r3, r0
-  lwz r3, 0(r3)	# Original operation
-  bne- %END%
-  cmpwi r3, MrResettiBank; beq %END%  
-  cmplwi r29, CustomSoundbankRange;  blt- %END%
-  li r3, 0x245
+  cmpwi r3, MrResettiBank; beq %END%
+  li r3, MaxCustomBank+1 
 }
 HOOK @ $801C9784
 {
-  mr r0, r3
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); lwz r3, -0xC(r3)
-  cmplwi r3, 0xC0DE
-  mr r3, r0
-  lwz r0, 0(r3)		# Original operation
-  bne- %END%
   cmpwi r0, MrResettiBank; beq %END%
-  li r0, 0x244
+  li r0, MaxCustomBank  
 }
 HOOK @ $801C98D0
 {
-  mr r0, r3
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); lwz r3, -0xC(r3)
-  cmplwi r3, 0xC0DE
-  mr r3, r0
-  lwz r0, 0(r3)		# Original operation
-  bne- %END%
   cmpwi r0, MrResettiBank; beq %END%
-  li r0, 0x244
+  li r0, MaxCustomBank
 }
 HOOK @ $801CA2F8
 {
-  mr r0, r3
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); lwz r3, -0xC(r3)
-  cmplwi r3, 0xC0DE
-  mr r3, r0
-  lwz r0, 0(r3)		# Original operation
-  bne- %END%
   cmpwi r0, MrResettiBank; beq %END%
-  li r0, 0x244
+  li r0, MaxCustomBank
 }
 HOOK @ $801CA420
 {
-  mr r0, r8
-  lis r8, 0x801C; lwz r8, 0x75A4(r8); lwz r8, -0xC(r8)
-  cmplwi r8, 0xC0DE
-  mr r8, r0
-  lwz r0, 0(r8)		# Original operation
-  bne- %END%
   cmpwi r0, MrResettiBank; beq %END%
-  li r0, 0x244
+  li r0, MaxCustomBank
 }
 HOOK @ $801CA474
 {
-  mr r0, r8
-  lis r8, 0x801C; lwz r8, 0x75A4(r8); lwz r8, -0xC(r8)
-  cmplwi r8, 0xC0DE
-  mr r8, r0
-  lwz r0, 0(r8)		# Original operation
-  bne- %END%
   cmpwi r0, MrResettiBank; beq %END%
-  li r0, 0x244
+  li r0, MaxCustomBank
 }
-HOOK @ $801C836C
+HOOK @ $801C78EC
 {
-  mtctr r12			# Original operation
-  cmplwi r26, CustomSoundbankRange;  blt- %END%
-  
-  lwz r4, 0x18(r31) 	#
-  lwz r4, 0x04(r4)		#
-  lwz r4, 0x28(r4)		# RSAR info
-  addis r4, r4, 0xE		#
-  addi  r4, r4, 0x3C6C	# Desired Offset: E3C6C 
-  
-  addi r5, r26, 0x7		# Soundbank ID + 7
-  stw r5, 0(r4)
-
+  cmpwi r0, MrResettiBank; beq %END%
+  li r0, MaxCustomBank
 }
+###################################
 HOOK @ $801C7900
 {
   rlwinm r0, r30, 3, 0, 28	# Original operation
@@ -340,6 +288,22 @@ HOOK @ $80079F90	#### During sound initialization
 	addi r5, r31, 0x474	# Beginning of soundbank allocations
 	stw r5, -0x1304(r4)	# Store to 8053ECFC
 	mr r4, r3		# Original operation
+}
+### Soundbank loading
+HOOK @ $801C836C
+{
+  mtctr r12			# Original operation
+  cmplwi r26, CustomSoundbankRange;  blt- %END%
+  
+  lwz r4, 0x18(r31) 	#
+  lwz r4, 0x04(r4)		#
+  lwz r4, 0x28(r4)		# RSAR info
+  addis r4, r4, 0xE		#
+  addi  r4, r4, 0x3C6C	# Desired Offset: E3C6C 
+  
+  addi r5, r26, 0x7		# Soundbank ID + 7
+  stw r5, 0(r4)
+
 }
 HOOK @ $801C8374
 {
@@ -361,11 +325,11 @@ HOOK @ $801C8374
   
     lis r15, 0x8053;  ori r15, r15, 0xED00
   
-  subi r14, r28, 0x80	# 909ebbe0 -> 909EBB60
+  lwz r14, 0x1C(r25)
   
   li r12, 11	# \ Loop 11 times!
   mtctr r12		# /
-  lwz r12, -0x4(r15)	# Pointer to a table of 11 pointers
+  lwz r12, -0x4(r15)	# Pointer to a table of 11 pointers. Typically at 90DE5CF4.
   
   li r19, 0
   
@@ -376,7 +340,7 @@ HOOK @ $801C8374
   addi r19, r19, 4
   bdnz+ loopPass 
  endLoop:
-  mulli r19, r19, 2	# 4 apart -> 8 apart
+  mulli r19, r19, 3	# 4 apart -> 12 apart
   
   lwz r14, 0x18(r31) 		#
   lwz r14, 0x04(r14)		#
@@ -389,6 +353,7 @@ HOOK @ $801C8374
   stw r19, 0x00(r15)
   lwz r19, 0x60(r14)
   stw r19, 0x04(r15)
+  stw r26, 0x08(r15)	# Soundbank ID
   
   lwz r15, 0x8(r1)
   lwz r14, 0xC(r1)
@@ -400,6 +365,21 @@ HOOK @ $801C8374
 loc_0x34:
   cmpwi r3, 0x0			# Original operation
 }
+### Soundbank Unloading
+HOOK @ $80073CC4
+{
+	rlwinm r12, r4, 24, 24, 31 # Filter for bottom half to get allocation index
+	mulli r12, r12, 12	# 0xC bytes of separation
+	lis r11, 0x8053;  ori r11, r11, 0xED00
+	add r12, r11, r12
+	li r0, 0			# \
+	stw r0, 0x0(r12)	# | Clear it for this section!
+	stw r0, 0x4(r12)	# |
+	stw r0, 0x8(r12)	# /
+	
+	lwz r3, 0x2D0(r3)	# Original operation
+}
+### Soundbank address info
 HOOK @ $801C7AB4
 {
   lwz r0, 0xC(r3)	# Original operation
@@ -408,32 +388,21 @@ HOOK @ $801C7AB4
 	stwu r1, -0x10(r1)
 	stw r4, 0x8(r1)
 	stw r5, 0xC(r1)
-
-  # lwz r28, 0x10(r1)
-  # lwz r28, 0x1C(r28)
-  # lwz r28, 0x94(r28)
-  # lwz r28, 0x490(r28)		# Pointer to mostly unused FRMH sound heap. Commented out as it actually was used by Pokemon Trainer 
-  # addi r28, r28, 0x60		# Start at offset 0x60
-  
-  lwz r28, 0x2C(r1)	# 1C + 10
-  subi r28, r28, 0x80 
   
   lis r3, 0x8053;  ori r3, r3, 0xED00
   
   li r12, 11	# \ Loop 11 times!
   mtctr r12		# /
-  lwz r12, -0x4(r3)	# Pointer to a table of 11 pointers
   
-  li r5, 0
-  
+  li r5, 8		# 3rd word for each 0xC set of values
  loopPass:  
-  lwzx r4, r12, r5
-  cmpw r4, r28		# Check if in the same allocation
-  ble endLoop		# The checks are in order from highest address to lowest!
-  addi r5, r5, 4
+  lwzx r4, r3, r5
+  cmpw r4, r29		# Check if in the same allocation
+  beq- endLoop		# The checks are in order from highest address to lowest!
+  addi r5, r5, 12
   bdnz+ loopPass 
  endLoop:
-  mulli r5, r5, 2	# 4 apart -> 8 apart 
+  subi r5, r5, 8	# Acccess address of first member of size-0xC struct design
   add r12, r3, r5
 
 	lwz r4, 0x8(r1)
@@ -454,6 +423,19 @@ HOOK @ $801C7ABC
 
   lwz r0, 0x00(r12)
 }
+HOOK @ $801C7A00
+{
+  # lis r4, 0x901A;  ori r4, r4, 0x3090
+  lis r4, 0x801C; lwz r4, 0x75A4(r4)
+  lis r0, 0x0;  ori r0, r0, 0xC0DE
+  # stw r0, 0(r4)
+  stw r0, -0xC(r4)
+  lwz r0, 0(r3)						# Original operation
+  cmplwi r29, CustomSoundbankRange  
+  blt- %END%
+  cmpwi r0, MrResettiBank; beq %END%  
+  li r0, 0x244
+}
 HOOK @ $801C7A14
 {
   rlwinm r0, r29, 3, 0, 28		# Original operation
@@ -468,66 +450,38 @@ HOOK @ $801C7A14
   addi r4, r29, 0x7
   stw r4, 0(r5)
 }
+### Sound Data
 HOOK @ $801C7C2C
 {
-  lwz r0, 0(r3)		# Original operation
+  lwz r0, 0(r3)		# Original operation.  Get anticipated sound range.
   cmplwi r31, CustomSound_Lo;  blt- %END%
-  cmplwi r31, 0xFFFF;          bgt+ %END%
-  stwu r1, -0x10(r1)
-  stw r14, 4(r1)
-  stw r15, 8(r1)
-  stw r16, 0xC(r1)
-  li r14, CustomSoundbankRange
-  li r15, CustomSound_Lo+0xA5
+  cmplwi r31, CustomSound_Hi;  bgt+ %END%
 
-loc_0x2C:
-  cmplw r31, r15;  blt- loc_0x40
-  addi r14, r14, 0x1
-  addi r15, r15, 0xA5
-  b loc_0x2C
-
-loc_0x40:
-  lis r4, 0x801C; lwz r4, 0x75A4(r4); stw r14, -0x8(r4)  
-  
-  li r14, CustomSound_Lo+0x2F
-  li r15, CustomSound_Lo+0xA5
-
-loc_0x54:
-  li r16, 0x0;  cmplw r31, r14;  blt- loc_0x78
-  li r16, 0x1;  cmplw r31, r15;  blt- loc_0x78
-  addi r14, r14, 0xA5
-  addi r15, r15, 0xA5
-  b loc_0x54
-
-loc_0x78:
-  stw r16, -0x4(r4)
-  li r0, 0xE5
-  rlwinm r0, r0, 8, 0, 31
-  lwz r14, 4(r1)
-  lwz r15, 8(r1)
-  lwz r16, 12(r1)
-  lwz r1, 0(r1)
+  li r0, 0xE5				# \ E500: CustomSound_Hi
+  rlwinm r0, r0, 8, 0, 31	# /
 }
 HOOK @ $801C7C4C
 {
   rlwinm r0, r31, 3, 0, 28		# Original operation
   cmplwi r31, CustomSound_Lo;  blt- %END%
-  li r4, 0x270F
-  rlwinm r0, r4, 3, 0, 28
+  li r4, 0x270F					# \ Mimic Sound 0x270F
+  rlwinm r0, r4, 3, 0, 28		# /
 }
+### 3D positional data
 HOOK @ $801C74EC
 {
-  lwz r0, 0(r3)			# Original operation
+  lwz r0, 0(r3)			# Original operation. Get anticipated sound range.
   cmplwi r30, CustomSound_Lo;  blt- %END%
-  li r0, 0xE5
-  rlwinm r0, r0, 8, 0, 31
+  
+  li r0, 0xE5				# \ E500: CustomSound_Hi
+  rlwinm r0, r0, 8, 0, 31	# /
 }
 HOOK @ $801C750C
 {
   rlwinm r0, r30, 3, 0, 28	# Original operation
   cmplwi r30, CustomSound_Lo;  blt- %END%
-  li r4, 0x270F
-  rlwinm r0, r4, 3, 0, 28
+  li r4, 0x270F					# \ Mimic Sound 0x270F
+  rlwinm r0, r4, 3, 0, 28		# /
 }
 HOOK @ $801C7570
 {
@@ -537,6 +491,7 @@ HOOK @ $801C7570
 loc_0x10:
   lwz r0, 0(r3)			# Original operation
 }
+### More Sound Info Data
 HOOK @ $801C73CC
 {  
   lis r4, 0x801C; lwz r4, 0x75A4(r4); lwz r0, -0xC(r4) 
@@ -576,43 +531,50 @@ loc_0x68:
 loc_0x84:
   lwz r0, 0(r3)		# Original operation
   cmplwi r30, CustomSound_Lo;  blt- %END%		# TODO: Probably need to set upper bound so music can read this
-  li r0, 0xE5
-  rlwinm r0, r0, 8, 0, 31
+  li r0, 0xE5				# \ E500: CustomSound_Hi
+  rlwinm r0, r0, 8, 0, 31	# /
 }
 HOOK @ $801C73EC
 {
   rlwinm r0, r30, 3, 0, 28	# Original operation
   cmplwi r30, CustomSound_Lo;  blt- %END%
-  li r4, 0x270F
-  rlwinm r0, r4, 3, 0, 28
+  li r4, 0x270F					# \ Mimic Sound 0x270F
+  rlwinm r0, r4, 3, 0, 28		# /
 }
 HOOK @ $801C742C
 {
   lwz r4, 4(r3)			# Original operation
   cmplwi r30, CustomSound_Lo;  blt- %END%
   cmplwi r30, CustomSound_Hi;  bge- %END%
+
+  subi r3, r30, 0x3F5B 	# TODO: Add GCTRM support for minus on offsets subi r3, r30, CustomSound_Lo-0xA5
+  li r4, 0x143 			# li r4, CustomSoundbankRange-1
+bankLoop:  
+  subi r3, r3, 0xA5
+  addi r4, r4, 1
+  cmpwi r3, 0xA5; bge+ bankLoop
+  mr r0, r4	# True soundbank ID
   
-
+  cmpwi r3, 0x2F	# See if the range is 4000-402E (Voice) or 402F-40A4 (SFX)
   
-  lis r3, 0x801C; lwz r3, 0x75A4(r3)
-  lwz r4, -0x4(r3)
-  lwz r0, -0x8(r3)
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); addi r3, r3, 0x48	# Table 2
+  lis r3, 0x801C; lwz r3, 0x75A4(r3) 
+  addi r3, r3, 0x48	# Table 2
 
-  cmplwi r4, 0;  bne- loc_0x30
-
+  bge- isSFX
+isVoice:
   addi r3, r3, 0x48	# Table 3
-loc_0x30:
+isSFX:
   lwz r4, 4(r3)
-  add r4, r4, r0
+  add r4, r4, r0	# force to be 0x6000+Soundbank if SFX or 0x7000+Soundbank if Voice
 
 }
+### Sound Typing
 HOOK @ $801C72D0
 {
   lwz r0, 0(r3)			# Original operation
   cmplwi r31, CustomSound_Lo;  blt- %END%
-  li r0, 0xE5
-  rlwinm r0, r0, 8, 0, 31
+  li r0, 0xE5				# \ E500: CustomSound_Hi
+  rlwinm r0, r0, 8, 0, 31	# /
 }
 HOOK @ $801C72F0
 {
@@ -629,12 +591,13 @@ HOOK @ $801C7318
 loc_0x10:
   lbz r0, 0x16(r3)		# Original operation
 }
+### Sound Info
 HOOK @ $801C8050
 {
   lwz r0, 0(r3)			# Original operation
   cmplwi r31, CustomSound_Lo;  blt- %END%
-  li r0, 0xE5
-  rlwinm r0, r0, 8, 0, 31
+  li r0, 0xE5				# \ E500: CustomSound_Hi
+  rlwinm r0, r0, 8, 0, 31	# /
 }
 HOOK @ $801C8074
 {
@@ -652,6 +615,7 @@ HOOK @ $801C80A8
 loc_0x18:
   lwz r4, 0x18(r3)	# Original operation
 }
+### File Data
 HOOK @ $801C7CF4
 {
   cmplwi r30, CustomSound_Hi;  bge- loc_0x18 # max sound ID
@@ -687,6 +651,7 @@ loc_0x1C:
 loc_0x20:
   lbz r3, 0x14(r3)	# Original operation
 }
+### File Offset. Abuses soundbank ID by making it appear to be 6xxx (SFX) or 7xxx (Voice)
 HOOK @ $801C7DF8
 {
   cmplwi r29, 0x6000;  blt- loc_0x10
@@ -725,7 +690,6 @@ HOOK @ $801C7E94
   
   lis r4, 0x801C; lwz r4, 0x75A4(r4); lwz r0, -0x8(r4)
   
-  
   subi r4, r29, 0x6000
   cmplwi r29, 0x7000;  blt- loc_0x28
   subi r4, r29, 0x7000
@@ -744,6 +708,7 @@ loc_0x10:
   cmplwi r29, 0x7000;  blt- %END%
   li r0, 0x0
 }
+### Wave Sound Info
 HOOK @ $801C76E4
 {
   lwz r4, 0(r3)		# Original operation
@@ -776,6 +741,7 @@ loc_0x58:
   lwz r16, 0xC(r1)
   lwz r1, 0(r1)
 }
+###
 HOOK @ $801CA63C # Prevents crash when attempting to play a sound that is not loaded.
 {
 	addi r3, r1, 8		# Operation being replaced below

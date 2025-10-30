@@ -21,22 +21,6 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/Project+/Camera.asm
 
 .include Source/ProjectM/IdleAudioFade.asm
-.include Source/ProjectM/Constants.asm
-
-.include Source/ProjectM/PSA/Effects.asm
-.include Source/ProjectM/PSA/Misc.asm
-.include Source/ProjectM/PSA/Tethers.asm
-.include Source/ProjectM/PSA/TauntCancel.asm
-.include Source/ProjectM/PSA/PowerShield.asm
-.include Source/ProjectM/PSA/Items.asm
-.include Source/ProjectM/PSA/Hitstun.asm
-.include Source/ProjectM/PSA/C-Stick.asm
-.include Source/ProjectM/PSA/MeteorCancel.asm
-.include Source/ProjectM/PSA/WallCling.asm
-.include Source/ProjectM/PSA/Glide.asm
-.include Source/ProjectM/PSA/Grabs.asm
-.include Source/ProjectM/PSA/SlowTurn.asm
-.include Source/ProjectM/PSA/Edge.asm
 
 .include Source/ProjectM/SpecialModes/AllStarVs.asm
 .include Source/ProjectM/SpecialModes/BombRain.asm
@@ -56,7 +40,6 @@ op blt- 0x34	   @ $8018CFC8
 
 .include Source/Project+/L-Cancel.asm
 .include Source/Project+/InputSystem.asm
-.include Source/Project+/Moonwalk.asm
 .include Source/Project+/AirDodge.asm
 .include Source/Project+/Pause.asm
 .include Source/Project+/Collision.asm
@@ -79,9 +62,11 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/ProjectM/Handicap.asm
 
 .include Source/Community/MusicSelect.asm
+.include Source/Community/PassiveAnim.asm
 .include Source/Community/Subspace.asm
 .include Source/Community/SubspaceSwap.asm
 .include Source/Community/WallAttach.asm
+.include Source/Community/lavaInjectLoader.asm
 
 .include Source/Community/PSA/Angle.asm
 .include Source/Community/PSA/IC-Basics.asm

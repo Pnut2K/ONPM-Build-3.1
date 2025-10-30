@@ -46,7 +46,7 @@ CODE @ $80FB29CC
 #dtilt to fsmash (down + smashstick downforward during crawl != dtilt)
 CODE @ $80541120
 {
-	word 2; word C_Stick_Off2+0x88
+	word 2; word C_Stick_Off2+0x80
 	
 	#Change Action: Requirement: Action=2D, Requirement=True
 	word 0; word 0x2D

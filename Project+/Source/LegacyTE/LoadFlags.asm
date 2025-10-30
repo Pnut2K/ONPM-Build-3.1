@@ -83,6 +83,51 @@ stringEtcName:
 	ori r4, r4, 0x6FB0	# "/fighter/%s%s%s%s"
 }
 
+############################################################################################
+Game and Watch Costume Code [Sammi Husky, Desi] (TE numbering (00-19/20-29/30+) by MarioDox)
+############################################################################################
+HOOK @ $8084D0A4
+{
+#Checks if the character is Mr.Game and Watch. if it isn't, end the code.
+cmpwi r31, 0x12
+bne- end
+
+#Stack Frame
+stw r7, 0x2F0 (r1)
+
+#Load Filename's CostumeID and Check if 00 (Prevents editing of Dark/Special Costumes)
+lhz r7, -0x5(r6)
+cmpwi r7, 0x3030
+bne- restore
+
+#Costumes 20-29 use 01 File
+#If the CostumeID is less than 20, the Filename is not changed. Otherwise, Filename is 01.
+cmpwi r23, 20
+blt- 0x8
+li r7, 0x3031
+
+#If the CostumeID is less than 30, the Filename is not changed. Otherwise, Filename is 02.
+cmpwi r23, 30
+blt- 0x8
+li r7, 0x3032
+
+#Costumes 40 & higher use 03 File
+#If the CostumeID is less than 40, the Filename is not changed. Otherwise, Filename is 03.
+cmpwi r23, 40
+blt- 0x8
+li r7, 0x3033
+
+#Store Filename
+sth r7, -0x5(r6)
+
+restore:
+lwz r7, 0x2F0 (r1)
+
+end:
+li r4, 3
+
+#CostumeID 00-19 will load 00, 20-29 will load 01, 30-39 will load 02, 40+ will load 03.
+}
 
 [Legacy TE] Sonic Uses Separate Etc Files Per Costume [DukeItOut]
 int8_t 0x27 @ $80AD8BC7
@@ -92,6 +137,9 @@ int8_t 0x37 @ $80AD8B9A
 
 [Legacy TE] R.O.B. Uses Separate Etc Files Per Costume
 int8_t 0x27 @ $80AD8BBB
+
+[Legacy TE] Peach costumes no longer use a FitEntry [DukeItOut]
+uint8_t 0x0 @ $80AD803C
 
 [Project+] Peach Uses Separate Etc Files Per Costume [KingJigglypuff, DukeItOut]
 int8_t 0x27 @ $80AD8BA4
@@ -110,3 +158,6 @@ int8_t 0x37 @ $80AD8BB8
 
 [Project+] Ivysaur has a FitFinal.pac [KingJigglypuff]
 int8_t 0x17 @ $80AD8BB7
+
+[Project+] Mr. Game and Watch has No Entry File [KingJigglypuff]
+uint8_t 0x0 @ $80AD8042

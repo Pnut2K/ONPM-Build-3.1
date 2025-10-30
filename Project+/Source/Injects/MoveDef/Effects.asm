@@ -322,7 +322,8 @@ Fire, Electric, Darkness, and Aura Use Intensity 1 [Magus]
 * 80FA262C 80FA262C
 
 Trace Eff-ID Modifiers [ds22]
-int 0x20 @ $80407324 
+int 0x20 @ $80407324 	#Ivysaur
+int 0x130 @ $80407328	#Green Alloy
 
 #####################################
 Luigi Fire is Green V1.2 (2/2) [ds22]

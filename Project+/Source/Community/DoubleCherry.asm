@@ -708,6 +708,8 @@ double:
     mulli r12, r12, 0x8 # | instance[ftEntry->activeInstanceIndex].fighter
     lwzx r3, r30, r12   # /
 rebindAnim:  
+    cmpwi r3, 0x0   # \ check if fighter is null
+    beq+ end        # /
     li r4, 0x0          # \
     lwz r5, 0x60(r3)    # | 
     lwz r3, 0xd8(r5)    # |
