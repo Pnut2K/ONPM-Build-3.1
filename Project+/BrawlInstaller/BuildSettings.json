@@ -16,6 +16,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 128,
@@ -29,7 +31,10 @@
       "AlwaysInheritStyle": true,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 1,
@@ -47,6 +52,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 128,
@@ -60,7 +67,10 @@
       "AlwaysInheritStyle": true,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 3,
@@ -97,6 +107,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 144,
@@ -110,7 +122,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": false,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 2,
@@ -128,6 +143,8 @@
       "Multiplier": 50,
       "Offset": 0,
       "SuffixDigits": 4,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 48,
@@ -141,7 +158,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 8,
@@ -159,6 +179,8 @@
       "Multiplier": 50,
       "Offset": 0,
       "SuffixDigits": 4,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 32,
@@ -172,7 +194,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 0,
@@ -200,6 +225,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 64,
@@ -213,7 +240,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 0,
@@ -241,6 +271,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 80,
@@ -254,7 +286,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 6,
@@ -282,6 +317,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 64,
@@ -295,7 +332,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 9,
@@ -313,6 +353,8 @@
       "Multiplier": 1,
       "Offset": 1,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 1,
       "Size": {
         "Width": 128,
@@ -326,7 +368,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -354,6 +399,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 128,
@@ -367,7 +414,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -385,6 +435,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 80,
@@ -398,7 +450,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 10,
@@ -416,6 +471,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 7,
       "Size": {
         "Width": 56,
@@ -429,7 +486,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 11,
@@ -447,6 +507,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 8,
       "Size": {
         "Width": 48,
@@ -460,7 +522,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 12,
@@ -497,6 +562,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 312,
@@ -510,7 +577,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 13,
@@ -538,6 +608,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 64,
@@ -551,7 +623,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": true
+      "Selectable": true,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 14,
@@ -579,6 +654,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 64,
@@ -592,7 +669,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 14,
@@ -629,6 +709,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 128,
@@ -642,7 +724,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 14,
@@ -679,6 +764,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 128,
@@ -692,7 +779,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 13,
@@ -720,6 +810,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 64,
@@ -733,7 +825,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": true
+      "Selectable": true,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 12,
@@ -770,6 +865,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 312,
@@ -783,7 +880,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 15,
@@ -820,6 +920,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 208,
@@ -833,7 +935,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 15,
@@ -870,6 +975,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 208,
@@ -883,7 +990,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 16,
@@ -911,6 +1021,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 120,
@@ -924,7 +1036,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": true
+      "Selectable": true,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 17,
@@ -961,6 +1076,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 208,
@@ -974,7 +1091,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": true
+      "Selectable": true,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 17,
@@ -1011,6 +1131,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 208,
@@ -1024,7 +1146,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": true
+      "Selectable": true,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 14,
@@ -1052,6 +1177,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 64,
@@ -1065,7 +1192,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 21,
@@ -1083,6 +1213,8 @@
       "Multiplier": 1,
       "Offset": 16,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 1,
       "Size": {
         "Width": 80,
@@ -1096,7 +1228,10 @@
       "AlwaysInheritStyle": true,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -1124,6 +1259,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 48,
@@ -1137,7 +1274,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -1165,6 +1305,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 48,
@@ -1178,7 +1320,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -1206,6 +1351,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 48,
@@ -1219,7 +1366,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -1247,6 +1397,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 48,
@@ -1260,7 +1412,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -1288,6 +1443,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 48,
@@ -1301,7 +1458,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -1329,6 +1489,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 48,
@@ -1342,7 +1504,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -1370,6 +1535,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 48,
@@ -1383,7 +1550,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 8,
@@ -1401,6 +1571,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 32,
@@ -1414,7 +1586,10 @@
       "AlwaysInheritStyle": true,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 7,
@@ -1442,6 +1617,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 5,
       "Size": {
         "Width": 48,
@@ -1455,7 +1632,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 6,
@@ -1473,6 +1653,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 64,
@@ -1486,7 +1668,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 6,
@@ -1523,6 +1708,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 64,
@@ -1536,7 +1723,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 18,
@@ -1573,6 +1763,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 200,
@@ -1586,7 +1778,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 18,
@@ -1623,6 +1818,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 200,
@@ -1636,7 +1833,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 19,
@@ -1664,6 +1864,8 @@
       "Multiplier": 1,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": 112,
@@ -1677,7 +1879,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 20,
@@ -1704,13 +1909,15 @@
       "Prefix": "MenSelmapStats",
       "Multiplier": 1,
       "Offset": 0,
-      "SuffixDigits": 3,
+      "SuffixDigits": 2,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 10,
       "Size": {
         "Width": null,
         "Height": null
       },
-      "Format": 0,
+      "Format": 14,
       "FirstOnly": false,
       "SeparateFiles": false,
       "CompressionType": 0,
@@ -1718,7 +1925,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": false,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 8,
@@ -1736,6 +1946,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 32,
@@ -1749,7 +1961,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 8,
@@ -1767,6 +1982,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 32,
@@ -1780,7 +1997,10 @@
       "AlwaysInheritStyle": false,
       "Required": false,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 5,
@@ -1808,6 +2028,8 @@
       "Multiplier": 10,
       "Offset": 0,
       "SuffixDigits": 3,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": null,
@@ -1821,7 +2043,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 8,
@@ -1849,6 +2074,8 @@
       "Multiplier": 50,
       "Offset": 0,
       "SuffixDigits": 4,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 32,
@@ -1862,7 +2089,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 8,
@@ -1880,6 +2110,8 @@
       "Multiplier": 50,
       "Offset": 0,
       "SuffixDigits": 4,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 32,
@@ -1893,7 +2125,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     },
     {
       "CosmeticType": 8,
@@ -1921,6 +2156,8 @@
       "Multiplier": 50,
       "Offset": 0,
       "SuffixDigits": 4,
+      "GroupMultiplier": 1,
+      "FilePrefix": "",
       "IdType": 4,
       "Size": {
         "Width": 32,
@@ -1934,7 +2171,10 @@
       "AlwaysInheritStyle": false,
       "Required": true,
       "Enabled": true,
-      "Selectable": false
+      "Selectable": false,
+      "AlwaysCreateArchive": true,
+      "PaletteCount": 256,
+      "ImportTextures": true
     }
   ],
   "SoundSettings": {
@@ -1948,7 +2188,17 @@
     "InstallKirbyHats": false,
     "DefaultExConfigVersion": 2,
     "SyncTracklists": false,
-    "UpdateCodeMenuNames": true
+    "UpdateCodeMenuNames": true,
+    "CompressBinFiles": false,
+    "RGBA8Thumbnails": false,
+    "BinUTF8Encoding": true,
+    "CreditsThemesUseFighterIds": false,
+    "VictoryThemesUseFighterIds": false,
+    "GctDebugMode": false,
+    "GctTimeoutSeconds": 5,
+    "ColorSmashDebugMode": false,
+    "ColorSmashTimeoutSeconds": 60,
+    "TrophyCategoryOffset": 23
   },
   "FilePathSettings": {
     "FilePaths": [
@@ -1958,6 +2208,10 @@
       },
       {
         "FileType": 1,
+        "Path": ""
+      },
+      {
+        "FileType": 44,
         "Path": ""
       },
       {
@@ -2061,6 +2315,10 @@
         "Path": "pf\\toy\\fig\\ty_fig_ext_list.msbin"
       },
       {
+        "FileType": 45,
+        "Path": "pf\\toy\\fig\\ty_fig_category.msbin"
+      },
+      {
         "FileType": 34,
         "Path": "pf\\toy\\fig\\"
       },
@@ -2071,6 +2329,14 @@
       {
         "FileType": 36,
         "Path": "pf\\module\\sora_adv_menu_game_over.rel"
+      },
+      {
+        "FileType": 41,
+        "Path": "Source\\Project+\\Random.asm"
+      },
+      {
+        "FileType": 42,
+        "Path": ""
       }
     ],
     "AsmPaths": [
@@ -2108,6 +2374,16 @@
         "Label": "",
         "FileType": 22,
         "Path": ""
+      },
+      {
+        "Label": "ExtraFighterData:",
+        "FileType": 43,
+        "Path": ""
+      },
+      {
+        "Label": "PHYSICS_DATA:",
+        "FileType": 46,
+        "Path": "Source\\ProjectM\\Modifier\\Physics.asm"
       }
     ],
     "FileNodePaths": [
@@ -2150,6 +2426,7 @@
     ],
     "VictoryThemeTracklist": "Results",
     "CreditsThemeTracklist": "Credits",
+    "BinFileHDTexturePath": "BrawlInstaller\\Stage Selection Screen\\Menu Alts",
     "RosterFiles": [
       {
         "FilePath": "pf\\BrawlEx\\CSSRoster.dat",
