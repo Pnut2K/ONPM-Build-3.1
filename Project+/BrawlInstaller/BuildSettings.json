@@ -2410,6 +2410,26 @@
       {
         "FileType": 24,
         "Path": "pf\\stage\\switch\\Switch02.rss"
+      },
+      {
+        "FileType": 24,
+        "Path": "pf\\stage\\switch\\Switch03.rss"
+      },
+      {
+        "FileType": 24,
+        "Path": "pf\\stage\\switch\\Switch04.rss"
+      },
+      {
+        "FileType": 24,
+        "Path": "pf\\stage\\switch\\Switch05.rss"
+      },
+      {
+        "FileType": 24,
+        "Path": "pf\\stage\\switch\\Switch06.rss"
+      },
+      {
+        "FileType": 24,
+        "Path": "pf\\stage\\switch\\SwitchFF.rss"
       }
     ],
     "RandomStageNamesLocations": [

@@ -1,5 +1,6 @@
 GCTRealMate.exe "./RSBE01.txt" -q
 GCTRealMate.exe "./BOOST.txt" -q
+GCTRealMate.exe "./NETBOOST.txt" -q
 GCTRealMate.exe "./Source/Injects/MDEF.txt" -q
 GCTRealMate.exe "./Source/Injects/DEFINE.txt" -q
 
