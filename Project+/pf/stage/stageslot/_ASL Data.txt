@@ -248,7 +248,7 @@ Z: Fourside_Z.param
 
 
 ################
-21.asl - 10 entries
+21.asl - 13 entries
 
 Base: Smashville.param
 R: Smashville_R.param
@@ -260,6 +260,9 @@ Z: Smashville_Z.param
 0x4003: Smashville_MR_03.param
 0x4004: Smashville_MR_04.param
 0x4005: Smashville_MR_05.param
+0x4006: Smashville_MR_06.param
+0x4007: Smashville_MR_07.param
+0x4008: Smashville_MR_08.param
 
 
 ################
