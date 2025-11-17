@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<app version="1.15">
+	<name>Project+ Launcher</name>
+	<version>3.1.5</version>
+	<coder>Project+ Dev Team</coder>
+	<release_date>20250609</release_date>
+	<short_description>Project+ Launcher</short_description>
+	<long_description>
+Project+ is a community-built mod of Project M featuring new aesthetics, stages, features, &amp; Knuckles. This mod would not be possible without the longstanding support of the Project M community. Thank you for playing!</long_description>
+	<arguments>
+		<arg>--codespath=sd:/project+</arg>
+	</arguments>
+	<ahb_access/>
+</app>
