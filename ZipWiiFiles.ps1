@@ -1,1 +1,1 @@
-Compress-Archive -Path ./Build/ "Wii Build.zip" -Update
+Compress-Archive -Path ./Build/ "Wii Build.zip" -Force
