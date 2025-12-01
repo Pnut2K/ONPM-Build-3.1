@@ -7,4 +7,4 @@ rmdir .\Build\Project+\Source\Netplay /s /q
 powershell.exe .\RenameFilesForWiiBuild.ps1
 ".\Build\Project+\GCTRealMate.exe" -q ".\Build\Project+\RSBE01.txt"
 ".\Build\Project+\GCTRealMate.exe" -q ".\Build\Project+\BOOST.txt"
-powershell.exe .\ZipWiiFiles.ps1
+:: powershell.exe .\ZipWiiFiles.ps1
