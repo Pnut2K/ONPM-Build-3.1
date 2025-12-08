@@ -115,7 +115,7 @@
         "Height": 32
       },
       "Format": 0,
-      "FirstOnly": false,
+      "FirstOnly": true,
       "SeparateFiles": false,
       "CompressionType": 0,
       "FileType": 1,
@@ -191,12 +191,12 @@
       "SeparateFiles": false,
       "CompressionType": 0,
       "FileType": 1,
-      "AlwaysInheritStyle": false,
+      "AlwaysInheritStyle": true,
       "Required": true,
       "Enabled": true,
       "Selectable": false,
       "AlwaysCreateArchive": true,
-      "PaletteCount": 256,
+      "PaletteCount": 32,
       "ImportTextures": true
     },
     {
@@ -233,7 +233,7 @@
         "Height": 64
       },
       "Format": 9,
-      "FirstOnly": false,
+      "FirstOnly": true,
       "SeparateFiles": false,
       "CompressionType": 0,
       "FileType": 1,
@@ -279,7 +279,7 @@
         "Height": 56
       },
       "Format": 14,
-      "FirstOnly": false,
+      "FirstOnly": true,
       "SeparateFiles": false,
       "CompressionType": 0,
       "FileType": 1,
@@ -305,7 +305,7 @@
       "PatSettings": [
         {
           "Path": "AnmTexPat(NW4R)/MenReplayPreview2_TopN__0/lambert78/Texture1",
-          "FramesPerImage": 1,
+          "FramesPerImage": 10,
           "IdType": null,
           "Multiplier": null,
           "Offset": null,
@@ -325,7 +325,7 @@
         "Height": 24
       },
       "Format": 9,
-      "FirstOnly": false,
+      "FirstOnly": true,
       "SeparateFiles": false,
       "CompressionType": 0,
       "FileType": 1,
@@ -1211,11 +1211,11 @@
       "PatSettings": [],
       "Prefix": "tex_face",
       "Multiplier": 1,
-      "Offset": 16,
+      "Offset": 1,
       "SuffixDigits": 3,
       "GroupMultiplier": 1,
       "FilePrefix": "",
-      "IdType": 1,
+      "IdType": 4,
       "Size": {
         "Width": 80,
         "Height": 56
@@ -1588,7 +1588,7 @@
       "Enabled": true,
       "Selectable": false,
       "AlwaysCreateArchive": true,
-      "PaletteCount": 256,
+      "PaletteCount": 32,
       "ImportTextures": true
     },
     {
@@ -1661,7 +1661,7 @@
         "Height": 24
       },
       "Format": 9,
-      "FirstOnly": false,
+      "FirstOnly": true,
       "SeparateFiles": false,
       "CompressionType": 0,
       "FileType": 1,
@@ -1687,7 +1687,7 @@
       "PatSettings": [
         {
           "Path": "Misc Data [40]/AnmTexPat(NW4R)/MenEvent0000_TopN__0/lambert78/Texture1",
-          "FramesPerImage": 1,
+          "FramesPerImage": 10,
           "IdType": null,
           "Multiplier": null,
           "Offset": null,
@@ -1696,7 +1696,7 @@
         },
         {
           "Path": "Misc Data [40]/AnmTexPat(NW4R)/MenEvent0040_TopN__0/lambert78/Texture1",
-          "FramesPerImage": 1,
+          "FramesPerImage": 10,
           "IdType": null,
           "Multiplier": null,
           "Offset": null,
@@ -1716,7 +1716,7 @@
         "Height": 24
       },
       "Format": 9,
-      "FirstOnly": false,
+      "FirstOnly": true,
       "SeparateFiles": false,
       "CompressionType": 0,
       "FileType": 1,
@@ -1917,7 +1917,7 @@
         "Width": null,
         "Height": null
       },
-      "Format": 14,
+      "Format": 0,
       "FirstOnly": false,
       "SeparateFiles": false,
       "CompressionType": 0,
@@ -1963,7 +1963,7 @@
       "Enabled": true,
       "Selectable": false,
       "AlwaysCreateArchive": true,
-      "PaletteCount": 256,
+      "PaletteCount": 32,
       "ImportTextures": true
     },
     {
@@ -1999,7 +1999,7 @@
       "Enabled": true,
       "Selectable": false,
       "AlwaysCreateArchive": true,
-      "PaletteCount": 256,
+      "PaletteCount": 32,
       "ImportTextures": true
     },
     {
@@ -2036,7 +2036,7 @@
         "Height": null
       },
       "Format": 0,
-      "FirstOnly": false,
+      "FirstOnly": true,
       "SeparateFiles": false,
       "CompressionType": 0,
       "FileType": 1,
@@ -2049,130 +2049,74 @@
       "ImportTextures": true
     },
     {
-      "CosmeticType": 8,
-      "Style": "P+",
+      "CosmeticType": 22,
+      "Style": "vBrawl",
       "InstallLocation": {
-        "FilePath": "pf\\info2\\info.pac",
-        "NodePath": "Misc Data [30]",
+        "FilePath": "pf\\toy\\figdisp\\figdisp.pac",
+        "NodePath": "",
         "FileExtension": "pac"
       },
-      "HDImageLocation": "BrawlInstaller\\Character Cosmetics\\",
-      "CreateHDTextureFolder": true,
-      "ModelPath": null,
-      "PatSettings": [
-        {
-          "Path": "Misc Data [30]/AnmTexPat(NW4R)/InfStockface_TopN__0/lambert87/Texture0",
-          "FramesPerImage": 1,
-          "IdType": null,
-          "Multiplier": null,
-          "Offset": null,
-          "AddTerminatorFrame": false,
-          "NormalizeTextureIds": false
-        }
-      ],
-      "Prefix": "InfStc",
-      "Multiplier": 50,
-      "Offset": 0,
-      "SuffixDigits": 4,
-      "GroupMultiplier": 1,
-      "FilePrefix": "",
-      "IdType": 4,
-      "Size": {
-        "Width": 32,
-        "Height": 32
-      },
-      "Format": 9,
-      "FirstOnly": false,
-      "SeparateFiles": false,
-      "CompressionType": 0,
-      "FileType": 1,
-      "AlwaysInheritStyle": false,
-      "Required": true,
-      "Enabled": true,
-      "Selectable": false,
-      "AlwaysCreateArchive": true,
-      "PaletteCount": 256,
-      "ImportTextures": true
-    },
-    {
-      "CosmeticType": 8,
-      "Style": "P+",
-      "InstallLocation": {
-        "FilePath": "pf\\menu2\\sc_selcharacter.pac",
-        "NodePath": "Misc Data [90]",
-        "FileExtension": "pac"
-      },
-      "HDImageLocation": "BrawlInstaller\\Character Cosmetics\\",
-      "CreateHDTextureFolder": true,
+      "HDImageLocation": "",
+      "CreateHDTextureFolder": false,
       "ModelPath": null,
       "PatSettings": [],
-      "Prefix": "InfStc",
-      "Multiplier": 50,
+      "Prefix": "MenCollDisply01",
+      "Multiplier": 1,
       "Offset": 0,
-      "SuffixDigits": 4,
-      "GroupMultiplier": 1,
+      "SuffixDigits": 3,
+      "GroupMultiplier": 10,
       "FilePrefix": "",
-      "IdType": 4,
+      "IdType": 7,
       "Size": {
-        "Width": 32,
-        "Height": 32
+        "Width": null,
+        "Height": null
       },
       "Format": 9,
       "FirstOnly": false,
       "SeparateFiles": false,
       "CompressionType": 0,
-      "FileType": 1,
+      "FileType": 3,
       "AlwaysInheritStyle": false,
-      "Required": true,
+      "Required": false,
       "Enabled": true,
       "Selectable": false,
-      "AlwaysCreateArchive": true,
+      "AlwaysCreateArchive": false,
       "PaletteCount": 256,
       "ImportTextures": true
     },
     {
-      "CosmeticType": 8,
-      "Style": "P+",
+      "CosmeticType": 22,
+      "Style": "vBrawl",
       "InstallLocation": {
-        "FilePath": "pf\\stage\\melee\\STGRESULT.pac",
-        "NodePath": "2/Misc Data [120]",
-        "FileExtension": "pac"
+        "FilePath": "pf\\toy\\figdisp\\",
+        "NodePath": "",
+        "FileExtension": "brres"
       },
-      "HDImageLocation": "BrawlInstaller\\Character Cosmetics\\",
-      "CreateHDTextureFolder": true,
+      "HDImageLocation": "",
+      "CreateHDTextureFolder": false,
       "ModelPath": null,
-      "PatSettings": [
-        {
-          "Path": "2/Misc Data [110]/AnmTexPat(NW4R)/InfStockface_TopN__0/lambert87/Texture0",
-          "FramesPerImage": 1,
-          "IdType": null,
-          "Multiplier": null,
-          "Offset": null,
-          "AddTerminatorFrame": false,
-          "NormalizeTextureIds": false
-        }
-      ],
-      "Prefix": "InfStc",
-      "Multiplier": 50,
+      "PatSettings": [],
+      "Prefix": "MenCollDisply01",
+      "Multiplier": 1,
       "Offset": 0,
-      "SuffixDigits": 4,
-      "GroupMultiplier": 1,
-      "FilePrefix": "",
-      "IdType": 4,
+      "SuffixDigits": 3,
+      "GroupMultiplier": 10,
+      "FilePrefix": "figdisp",
+      "IdType": 7,
       "Size": {
-        "Width": 32,
-        "Height": 32
+        "Width": null,
+        "Height": null
       },
       "Format": 9,
       "FirstOnly": false,
       "SeparateFiles": false,
       "CompressionType": 0,
-      "FileType": 1,
+      "FileType": 0,
       "AlwaysInheritStyle": false,
-      "Required": true,
+      "Required": false,
       "Enabled": true,
       "Selectable": false,
-      "AlwaysCreateArchive": true,
+      "AlwaysCreateArchive": false,
       "PaletteCount": 256,
       "ImportTextures": true
     }
@@ -2189,11 +2133,11 @@
     "DefaultExConfigVersion": 2,
     "SyncTracklists": false,
     "UpdateCodeMenuNames": true,
-    "CompressBinFiles": false,
+    "CompressBinFiles": true,
     "RGBA8Thumbnails": false,
     "BinUTF8Encoding": true,
-    "CreditsThemesUseFighterIds": false,
-    "VictoryThemesUseFighterIds": false,
+    "CreditsThemesUseFighterIds": true,
+    "VictoryThemesUseFighterIds": true,
     "GctDebugMode": false,
     "GctTimeoutSeconds": 5,
     "ColorSmashDebugMode": false,
@@ -2341,14 +2285,14 @@
     ],
     "AsmPaths": [
       {
-        "Label": "TABLE_STAGES:",
+        "Label": "",
         "FileType": 16,
         "Path": "pf\\stage\\switch\\Switch00.rss"
       },
       {
-        "Label": "ClassicResultsTable:",
+        "Label": "",
         "FileType": 17,
-        "Path": "Source\\Project+\\ResultsMusic.asm"
+        "Path": ""
       },
       {
         "Label": "ENDINGTABLE:",
