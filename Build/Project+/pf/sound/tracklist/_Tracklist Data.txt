@@ -509,21 +509,6 @@ Cookie_Country.tlst - 6 tracks
 	Volume: 60
 	Frequency: 40
 
-	Magma Flows
-	Kirby/Magma Flows.brstm
-	Volume: 70
-	Frequency: 40
-
-	Sand Canyon
-	Kirby/Sand Canyon.brstm
-	Volume: 90
-	Frequency: 40
-
-	Meadow Breeze
-	Kirby/Meadow Breeze.brstm
-	Volume: 80
-	Frequency: 40
-
 ################
 Corneria.tlst - 5 tracks
 
@@ -1045,11 +1030,6 @@ Dream_Land.tlst - 14 tracks
 	F02.brstm (0x2758)
 	Frequency: 40
 
-	Sand Canyon
-	Kirby/Sand Canyon.brstm
-	Volume: 90
-	Frequency: 40
-
 	Masked Dedede
 	Kirby/Masked Dedede (KTD).brstm
 	Volume: 60
@@ -1077,19 +1057,9 @@ Dream_Land.tlst - 14 tracks
 	F09.brstm (0x275F)
 	Frequency: 40
 
-	Pop Star
-	Kirby/Pop Star.brstm
-	Volume: 80
-	Frequency: 40
-
 	Ripple Star Map
 	Kirby/Ripple Star Map.brstm
 	Volume: 62
-	Frequency: 40
-
-	Boss Battle (Kirby 64)
-	Kirby/Boss Battle [K64].brstm
-	Volume: 100
 	Frequency: 40
 
 	Meadow Breeze
@@ -1148,11 +1118,6 @@ Dream_Land_Winter.tlst - 11 tracks
 
 	The Final Battle
 	Kirby/The Final Battle.brstm
-	Volume: 60
-	Frequency: 40
-
-	Factory Investigation
-	Kirby/Factory Investigation (KRC).brstm
 	Volume: 60
 	Frequency: 40
 
@@ -1527,16 +1492,6 @@ Green_Greens.tlst - 7 tracks
 	Volume: 90
 	Frequency: 40
 
-	Pop Star
-	Kirby/Pop Star.brstm
-	Volume: 80
-	Frequency: 40
-
-	Boss Battle (Kirby 64)
-	Kirby/Boss Battle [K64].brstm
-	Volume: 100
-	Frequency: 40
-
 ################
 Green_Hill_Zone_Brawl.tlst - 6 tracks
 
@@ -1609,16 +1564,6 @@ Halberd.tlst - 15 tracks
 	Vs. Dark Meta Knight
 	Kirby/Vs. Dark Meta Knight (KTD).brstm
 	Volume: 80
-	Frequency: 40
-
-	Factory Investigation
-	Kirby/Factory Investigation (KRC).brstm
-	Volume: 60
-	Frequency: 40
-
-	Castle LoLoLo
-	Kirby/Castle LoLoLo (KAR).brstm
-	Volume: 60
 	Frequency: 40
 
 	Bioplant (HyperZone)
