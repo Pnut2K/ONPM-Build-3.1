@@ -15,19 +15,19 @@ PSA edits for Rongunshu Marth blue sword trails and Sephiroth Marth silver sword
    - Sub Action 1EF, GFX
  - Edits to ef_custom44
 
-PSA edits for Rongunshu Ike blue sword trails and Cloud Ike silver sword trails by white sheep
- - PSA Edited:
-   - Sub Routines 0x15118, 0x14BD8, 0x156A0, 0x14A20
-   - Sub Action 0x1E2, GFX
-   - Article 0, Sub Action 0x2, GFX; Article 0, Sub Action 0x3, GFX
- - Added textures in ef_custom22
-
 PSA edits for tia Ike sword trails by ilikepizza107, with updates by white sheep
  - PSA Edited:
    - Sub Routines 0x15118, 0x14BD8, 0x156A0, 0x14A20
    - Sub Action 1E2, GFX
    - Article 0x0, Sub Action 0x2, GFX; Article 0x0, Sub Action 0x3, GFX
  - Added ef_custom22
+
+PSA edits for Rongunshu Ike blue sword trails and Cloud Ike silver sword trails by white sheep
+ - PSA Edited:
+   - Sub Routines 0x15118, 0x14BD8, 0x156A0, 0x14A20
+   - Sub Action 0x1E2, GFX
+   - Article 0, Sub Action 0x2, GFX; Article 0, Sub Action 0x3, GFX
+ - Added textures in ef_custom22
 
 PSA edits for Lucas GFX and SFX by white sheep, with contributions by Pnut; credits to GRAND AZEL, Star, and FireStarMarthy for original assets
  - PSA Added: Subroutine 0x10F28
@@ -83,6 +83,7 @@ LINK
 31 - Red NES Link by tyleto with credit to AlGeorge Romo, PMDT, Ely, LinkTahuterasuSpirit, iwantgames, SJS, Dr., Mach 7, Nanobuds, Theytah, Wii, Moe
 32 - White NES Link by tyleto with credit to AlGeorge Romo, PMDT, Ely, LinkTahuterasuSpirit, iwantgames, SJS, Dr., Mach 7, Nanobuds, Theytah, Wii, Moe
  - Slot-Specific Gear for NES Link by Sate
+AltZ - Brawlified Breath of the Wild Link by MoeMacCornick, tyleto, radzo73, with special thanks to Rizzy
 
 SAMUS
 
