@@ -1234,11 +1234,6 @@ Fountain_Of_Dreams.tlst - 12 tracks
 	Frequency: 40
 	Song delay: -1
 
-	Moonstruck Blossom
-	Kirby/Moonstruck Blossom.brstm
-	Volume: 65
-	Frequency: 40
-
 	Another Dimension
 	Kirby/Another Dimension.brstm
 	Volume: 60
@@ -1247,11 +1242,6 @@ Fountain_Of_Dreams.tlst - 12 tracks
 	Magma Flows
 	Kirby/Magma Flows.brstm
 	Volume: 70
-	Frequency: 40
-
-	Vs. Marx
-	Kirby/Vs. Marx.brstm
-	Volume: 125
 	Frequency: 40
 
 	Sand Canyon Pyramid

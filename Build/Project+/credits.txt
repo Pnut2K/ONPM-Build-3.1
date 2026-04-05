@@ -42,11 +42,11 @@ PSA edits for Ness GFX and SFX by white sheep and Pnut, with credits to PK MASTE
  - ef_ness edits
  - 00E.sawnd edits
 
-PSA edits for Kirby fire hammer by Pnut
- - PSA Edited:
+PSA edits for Kirby fire hammer by Pnut, with credit to white sheep
+ - PSA Edited: Sub Actions 1EC, GFX; 1ED, GFX
 
 PSA edits for Pit magic hit effects by white sheep
- - PSA Edited: 
+ - PSA Edited: Sub Actions 3C, Main; 66, Main
 
 FitLucario.pac ef_custom97 aura trail texture edit by Pnut
 
