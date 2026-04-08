@@ -7,7 +7,7 @@ PSA edits for Permafrost Link ice GFX and SFX by white sheep, with credit to Pnu
    - Sub Actions 58, Main, GFX, SFX; 59, Main, GFX, SFX; 66 Main, GFX; 1DB, Main, GFX, Other; 1DD, Main, GFX, Other
    - Sub Routine 0xE498
 
-PSA edits for Motobug Sonic trails by white sheep
+PSA edit for Motobug Sonic trails by white sheep
  - PSA Edited: Sub Routine 0x2E5AC
 
 PSA edits for Marth by SSK and KingJigglypuff, ilikepizza107, with updates by white sheep
@@ -46,6 +46,9 @@ PSA edits for Ness GFX and SFX by white sheep and Pnut, with credits to PK MASTE
    - Article 1, Sub Action 0, GFX;
  - ef_ness edits
  - 00E.sawnd edits
+
+PSA edit for cream Mewtwo trail colours by white sheep
+ - PSA Edited: Sub Routine F3E8
 
 PSA edits for Kirby fire hammer by Pnut, with credit to white sheep
  - PSA Edited: Sub Actions 1EC, GFX; 1ED, GFX
@@ -267,7 +270,7 @@ R - ONPM Saffron City (Day) by white sheep
  - Based off Saffron ToT by mawwwk, MarioDox, DukeItOut, Dranakar, davidvkimball, Scout with credit to Yohan1044, Ryztiq and the PMDT, optimizations by Layell
 
 KONGO JUNGLE
-Base - ONPM Kongo Jungle by Pnut, with module coding by Kapedani; updates by Pnut and white sheep
+Base - ONPM Kongo Jungle by Pnut, with module coding by Kapedani; updates by Pnut and white sheep, with credit to DukeItOut
 R - Barrelless Kongo Jungle by white sheep
  - Based off T+ Kongo Jungle HD Dreamland by Yorch
 
