@@ -1926,6 +1926,64 @@ Hornet_Hole.tlst - 5 tracks
 	Song delay: 144
 
 ################
+Hyrule_Castle.tlst - 11 tracks
+
+	Active NEETs - Native Faith (Touhou 10)
+	NutTracks/tot/Native Faith
+	Volume: 80
+	Frequency: 40
+
+	Decisive Battle (Final Fantasy VI)
+	NutTracks/tot/Decisive Battle
+	Volume: 80
+	Frequency: 40
+
+	Decisive Battle II (Octopath Traveler)
+	NutTracks/tot/Decisive Battle II
+	Volume: 80
+	Frequency: 40
+
+	Disturbance in Agustria (Octopath Traveler ver.)
+	NutTracks/gff/Disturbance in Agustria
+	Volume: 75
+	Frequency: 40
+
+	Don't Speak Her Name! (FE Awakening)
+	NutTracks/gff/Dont Speak Her Name
+	Volume: 75
+	Frequency: 40
+
+	Dreaming (Ys)
+	NutTracks/tot/Dreaming
+	Volume: 80
+	Frequency: 40
+
+	Flying Waters (Clair Obscur: Expedition 33)
+	NutTracks\gff\Flying Waters
+	Volume: 80
+	Frequency: 40
+
+	I'll Face Myself (Persona 4)
+	NutTracks/tot/I'll Face Myself
+	Volume: 80
+	Frequency: 40
+
+	Megaraph Fleet (Spark the Electric Jester)
+	NutTracks/tot/Megaraph Fleet
+	Volume: 80
+	Frequency: 40
+
+	Paradigm Shift (Final Fantasy XIII-2)
+	NutTracks/tot/Paradigm Shift
+	Volume: 80
+	Frequency: 40
+
+	Voile, the Magic Library (Touhou 12.3)
+	NutTracks/tot/Voile, the Magic Library
+	Volume: 80
+	Frequency: 40
+
+################
 Hyrule_Castle_64.tlst - 1 track
 
 	Main Theme - The Legend of Zelda (Super Smash Bros. ver.)
@@ -2021,7 +2079,7 @@ Kakariko.tlst - 8 tracks
 	Frequency: 40
 
 ################
-Kongo_Jungle.tlst - 3 tracks
+Kongo_Jungle.tlst - 8 tracks
 
 	Aquatic Ambience (Donkey Kong Country)
 	NutTracks/kongo/Aquatic Ambience
@@ -2072,7 +2130,7 @@ Kongo_Jungle_64.tlst - 1 track
 	Frequency: 40
 
 ################
-Luigis_Mansion.tlst - 1 track
+Luigis_Mansion.tlst - 10 tracks
 
 	Adhesion of Blood (Sword of the Berserk: Guts' Rage)
 	NutTracks\Luigis\Adhesion of Blood
@@ -3668,7 +3726,7 @@ Shadow_Moses_Island.tlst - 10 tracks
 	Frequency: 1
 
 ################
-Shy_Guys_Toy_Box.tlst - 1 tracks
+Shy_Guys_Toy_Box.tlst - 1 track
 
 	It's Battle Time!
 	Mario/It's Battle Time!.brstm
@@ -4076,7 +4134,7 @@ Temple_of_Time_OoT.tlst - 8 tracks
 	Frequency: 40
 
 ################
-Tower_of_Guidance.tlst - 1 tracks
+Tower_of_Guidance.tlst - 1 track
 
 	Power-Hungry Fool
 	J11.brstm (0x278C)
@@ -4285,7 +4343,7 @@ World_Bowser.tlst - 1 track
 	Frequency: 40
 
 ################
-Yoshis_Cookie.tlst - 1 tracks
+Yoshis_Cookie.tlst - 1 track
 
 	Lip's Theme (Panel de Pon)
 	R06.brstm (0x27D6)
