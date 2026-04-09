@@ -1929,17 +1929,17 @@ Hornet_Hole.tlst - 5 tracks
 Hyrule_Castle.tlst - 11 tracks
 
 	Active NEETs - Native Faith (Touhou 10)
-	NutTracks/tot/Native Faith
+	NutTracks/hc/Native Faith
 	Volume: 80
 	Frequency: 40
 
 	Decisive Battle (Final Fantasy VI)
-	NutTracks/tot/Decisive Battle
+	NutTracks/hc/Decisive Battle
 	Volume: 80
 	Frequency: 40
 
 	Decisive Battle II (Octopath Traveler)
-	NutTracks/tot/Decisive Battle II
+	NutTracks/hc/Decisive Battle II
 	Volume: 80
 	Frequency: 40
 
@@ -1954,7 +1954,7 @@ Hyrule_Castle.tlst - 11 tracks
 	Frequency: 40
 
 	Dreaming (Ys)
-	NutTracks/tot/Dreaming
+	NutTracks/hc/Dreaming
 	Volume: 80
 	Frequency: 40
 
@@ -1964,22 +1964,22 @@ Hyrule_Castle.tlst - 11 tracks
 	Frequency: 40
 
 	I'll Face Myself (Persona 4)
-	NutTracks/tot/I'll Face Myself
+	NutTracks/hc/I'll Face Myself
 	Volume: 80
 	Frequency: 40
 
 	Megaraph Fleet (Spark the Electric Jester)
-	NutTracks/tot/Megaraph Fleet
+	NutTracks/hc/Megaraph Fleet
 	Volume: 80
 	Frequency: 40
 
 	Paradigm Shift (Final Fantasy XIII-2)
-	NutTracks/tot/Paradigm Shift
+	NutTracks/hc/Paradigm Shift
 	Volume: 80
 	Frequency: 40
 
 	Voile, the Magic Library (Touhou 12.3)
-	NutTracks/tot/Voile, the Magic Library
+	NutTracks/hc/Voile, the Magic Library
 	Volume: 80
 	Frequency: 40
 
