@@ -2367,7 +2367,7 @@ Menu.tlst - 16 tracks
 
 	Spy Trolling - Ruder Buster [Late 90's Mix] (DELTARUNE)
 	NutTracks/Menu/Ruder Buster
-	Volume: 120
+	Volume: 85
 	Frequency: 40
 	
 	Tek lintowe - Ween wao
