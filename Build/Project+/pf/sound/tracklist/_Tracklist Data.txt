@@ -208,24 +208,24 @@ Big_Shell.tlst - 6 tracks
 ################
 Bobomb_Battlefield.tlst - 4 tracks
 
-	Aphex Twin - Flim (on4word)
+	Master Nama - Scatman's World (Scatman John)
+	NutTracks\bb\Scatman's World
+	Volume: 127
+	Frequency: 40
+
+	More Tsua - In the End (Linkin Park)
+	NutTracks\bb\In the End
+	Volume: 100
+	Frequency: 40
+	
+	on4word - Flim (Aphex Twin)
 	NutTracks\bb\Flim
 	Volume: 100
 	Frequency: 40
 
-	Casiopea - Take Me (TestSubjectQWTD)
+	TestSubjectQWTD - Take Me (Casiopea)
 	NutTracks\bb\Take Me
 	Volume: 100
-	Frequency: 40
-
-	Linkin Park - In the End (More Tsua)
-	NutTracks\bb\In the End
-	Volume: 100
-	Frequency: 40
-
-	Scatman John - Scatman's World (Master Nama)
-	NutTracks\bb\Scatman's World
-	Volume: 127
 	Frequency: 40
 
 ################
@@ -1387,9 +1387,9 @@ Fairy_Fountain.tlst - 14 tracks
 	Volume: 75
 	Frequency: 40
 
-	Astral Observatory (Zaxiade)
-	NutTracks/gff/Astral Observatory
-	Volume: 85
+	audaCore - Great Fairy Fountain
+	NutTracks/gff/Great Fairy Fountain
+	Volume: 80
 	Frequency: 40
 
 	Battle!! Torna (Xenoblade Chronicles 2)
@@ -1397,12 +1397,7 @@ Fairy_Fountain.tlst - 14 tracks
 	Volume: 80
 	Frequency: 40
 
-	Disturbance in Agustria (Octopath Traveler ver.)
-	NutTracks/gff/Disturbance in Agustria
-	Volume: 75
-	Frequency: 40
-
-	Don't Speak Her Name! (FE Awakening)
+	Don't Speak Her Name! (Fire Emblem Awakening)
 	NutTracks/gff/Dont Speak Her Name
 	Volume: 75
 	Frequency: 40
@@ -1412,14 +1407,14 @@ Fairy_Fountain.tlst - 14 tracks
 	Volume: 80
 	Frequency: 40
 
+	forblaze - Disturbance in Agustria (Octopath Traveler Remix)
+	NutTracks/gff/Disturbance in Agustria
+	Volume: 75
+	Frequency: 40
+
 	From Now On (DELTARUNE)
 	NutTracks/gff/From Now On
 	Volume: 100
-	Frequency: 40
-
-	Great Fairy Fountain (AudaCore)
-	NutTracks/gff/Great Fairy Fountain
-	Volume: 80
 	Frequency: 40
 
 	Icefield White Knight II (UNI2)
@@ -1450,6 +1445,11 @@ Fairy_Fountain.tlst - 14 tracks
 	Winter Bliss (Castle Crashers)
 	NutTracks/gff/Winter Bliss
 	Volume: 80
+	Frequency: 40
+
+	Zaxiade - Astral Observatory
+	NutTracks/gff/Astral Observatory
+	Volume: 85
 	Frequency: 40
 
 ################
@@ -1943,12 +1943,7 @@ Hyrule_Castle.tlst - 11 tracks
 	Volume: 80
 	Frequency: 40
 
-	Disturbance in Agustria (Octopath Traveler ver.)
-	NutTracks/gff/Disturbance in Agustria
-	Volume: 75
-	Frequency: 40
-
-	Don't Speak Her Name! (FE Awakening)
+	Don't Speak Her Name! (Fire Emblem Awakening)
 	NutTracks/gff/Dont Speak Her Name
 	Volume: 75
 	Frequency: 40
@@ -1961,6 +1956,11 @@ Hyrule_Castle.tlst - 11 tracks
 	Flying Waters (Clair Obscur: Expedition 33)
 	NutTracks\gff\Flying Waters
 	Volume: 80
+	Frequency: 40
+
+	forblaze - Disturbance in Agustria (Octopath Traveler Remix)
+	NutTracks/gff/Disturbance in Agustria
+	Volume: 75
 	Frequency: 40
 
 	I'll Face Myself (Persona 4)
@@ -2310,6 +2310,11 @@ Mario_Paint.tlst - 1 track
 ################
 Menu.tlst - 16 tracks
 
+	aBREACTmusic - Metaknight Da Bess
+	NutTracks\Menu\Metaknight Da Bess
+	Volume: 80
+	Frequency: 40
+
 	Actor's Anteroom (MBAACC)
 	NutTracks\Menu\Actor's Anteroom
 	Volume: 73
@@ -2330,12 +2335,12 @@ Menu.tlst - 16 tracks
 	Volume: 80
 	Frequency: 40
 
-	Gator Gambol (Omori)
+	Gator Gambol (OMORI)
 	NutTracks\Menu\Gator Gambol
 	Volume: 80
 	Frequency: 40
 
-	Heavenly Star
+	Genki Rockets - Heavenly Star
 	NutTracks\Menu\Heavenly Star
 	Volume: 80
 	Frequency: 40
@@ -2343,11 +2348,6 @@ Menu.tlst - 16 tracks
 	Hip Shop (DELTARUNE)
 	NutTracks\Menu\Hip Shop
 	Volume: 96
-	Frequency: 40
-
-	Metaknight Da Bess
-	NutTracks\Menu\Metaknight Da Bess
-	Volume: 80
 	Frequency: 40
 
 	Move It, Boy (Pizza Tower)
@@ -2364,6 +2364,11 @@ Menu.tlst - 16 tracks
 	NutTracks\Menu\Pick of the Litter
 	Volume: 90
 	Frequency: 40
+	
+	Tek lintowe - Ween wao
+	NutTracks/Menu/Ween wao
+	Volume: 100
+	Frequency: 1
 
 	The Meteor (Budokai Tenkaichi 3)
 	NutTracks\Menu\The Meteor
@@ -2384,11 +2389,6 @@ Menu.tlst - 16 tracks
 	NutTracks\Menu\Wally Select
 	Volume: 80
 	Frequency: 40
-
-	Ween wao
-	NutTracks/Menu/Ween wao
-	Volume: 100
-	Frequency: 1
 
 ################
 Mercury_Lighthouse.tlst - 2 tracks
@@ -3512,16 +3512,6 @@ Saffron_City.tlst - 12 tracks
 	Volume: 67
 	Frequency: 40
 
-	Battle! Champion (DP)
-	NutTracks\Saffron\Battle! Champion (DP)
-	Volume: 85
-	Frequency: 40
-
-	Battle! Champion (HGSS)
-	NutTracks\Saffron\Battle! Champion (HGSS)
-	Volume: 80
-	Frequency: 40
-
 	Battle! Champion Blue (Origins)
 	Pokemon\Battle! Champion Blue (Origins)
 	Volume: 60
@@ -3553,6 +3543,16 @@ Saffron_City.tlst - 12 tracks
 
 	Battle! Ultra Necrozma (USUM)
 	NutTracks\Saffron\Battle! Ultra Necrozma (USUM)
+	Volume: 80
+	Frequency: 40
+
+	Church of Kondo - Battle! Champion (DP)
+	NutTracks\Saffron\Battle! Champion (DP)
+	Volume: 85
+	Frequency: 40
+
+	Church of Kondo - Battle! Champion (HGSS)
+	NutTracks\Saffron\Battle! Champion (HGSS)
 	Volume: 80
 	Frequency: 40
 
@@ -3582,16 +3582,6 @@ Saffron_City_Day.tlst - 17 tracks
 	Volume: 67
 	Frequency: 40
 
-	Battle! Champion (DP)
-	NutTracks\Saffron\Battle! Champion (DP)
-	Volume: 85
-	Frequency: 40
-
-	Battle! Champion (HGSS)
-	NutTracks\Saffron\Battle! Champion (HGSS)
-	Volume: 80
-	Frequency: 40
-
 	Battle! Champion Blue (Origins)
 	Pokemon\Battle! Champion Blue (Origins)
 	Volume: 60
@@ -3626,6 +3616,26 @@ Saffron_City_Day.tlst - 17 tracks
 	Volume: 80
 	Frequency: 40
 
+	Church of Kondo - Battle! Champion (DP)
+	NutTracks\Saffron\Battle! Champion (DP)
+	Volume: 85
+	Frequency: 40
+
+	Church of Kondo - Battle! Champion (HGSS)
+	NutTracks\Saffron\Battle! Champion (HGSS)
+	Volume: 80
+	Frequency: 40
+	
+	Church of Kondo - Goldenrod Game Corner
+	NutTracks\Saffron\Goldenrod Game Corner
+	Volume: 127
+	Frequency: 40
+
+	Church of Kondo - National Park
+	NutTracks\Saffron\National Park
+	Volume: 120
+	Frequency: 40
+
 	Dialga's Fight to the Finish
 	Pokemon/Dialga's Fight to the Finish.brstm
 	Volume: 85
@@ -3639,16 +3649,6 @@ Saffron_City_Day.tlst - 17 tracks
 	Ever Grande City (RS)
 	NutTracks\Saffron\Ever Grande City (RS)
 	Volume: 69
-	Frequency: 40
-
-	Goldenrod Game Corner
-	NutTracks\Saffron\Goldenrod Game Corner
-	Volume: 127
-	Frequency: 40
-
-	National Park
-	NutTracks\Saffron\National Park
-	Volume: 120
 	Frequency: 40
 
 	Route 10 (BW)
@@ -3720,7 +3720,7 @@ Shadow_Moses_Island.tlst - 10 tracks
 	S11.brstm (0x27EC)
 	Frequency: 40
 
-	Ween wao
+	Tek lintowe - Ween wao
 	NutTracks/Menu/Ween wao
 	Volume: 100
 	Frequency: 1
