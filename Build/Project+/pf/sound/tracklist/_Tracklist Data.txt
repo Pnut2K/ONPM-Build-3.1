@@ -518,15 +518,10 @@ Ceres_Space_Colony.tlst - 3 tracks
 	Frequency: 40
 
 ################
-Chaos_Angel.tlst - 12 tracks
+Chaos_Angel.tlst - 11 tracks
 
 	Chaos Angel
 	Sonic/Chaos Angel.brstm
-	Volume: 80
-	Frequency: 40
-
-	Chemical Plant Zone
-	Sonic/Chemical Plant Zone.brstm
 	Volume: 80
 	Frequency: 40
 
