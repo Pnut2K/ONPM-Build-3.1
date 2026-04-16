@@ -1247,7 +1247,7 @@ Draculas_Castle.tlst - 8 tracks
 	Frequency: 40
 
 ################
-Dream_Land.tlst - 10 tracks
+Dream_Land.tlst - 9 tracks
 
 	Gourmet Race
 	Kirby/Gourmet Race (SSB).brstm
@@ -1285,11 +1285,6 @@ Dream_Land.tlst - 10 tracks
 	F09.brstm (0x275F)
 	Frequency: 40
 
-	Ripple Star Map
-	Kirby/Ripple Star Map.brstm
-	Volume: 62
-	Frequency: 40
-
 	Meta Knight's Revenge
 	F06.brstm (0x275C)
 	Frequency: 40
@@ -1303,7 +1298,7 @@ Dream_Land_64.tlst - 1 track
 	Frequency: 40
 
 ################
-Dream_Land_Winter.tlst - 9 tracks
+Dream_Land_Winter.tlst - 6 tracks
 
 	Rainbow Route
 	F09.brstm (0x275F)
@@ -1322,16 +1317,6 @@ Dream_Land_Winter.tlst - 9 tracks
 	Candy Constellation
 	Kirby/Candy Constellation.brstm
 	Volume: 80
-	Frequency: 40
-
-	Sand Canyon Pyramid
-	Kirby/Sand Canyon Pyramid (KPR).brstm
-	Volume: 65
-	Frequency: 40
-
-	Heavy Lobster
-	Kirby/Heavy Lobster (KRC).brstm
-	Volume: 65
 	Frequency: 40
 
 	The Final Battle
@@ -1514,7 +1499,7 @@ Flat_Zone.tlst - 2 tracks
 	Frequency: 40
 
 ################
-Fountain_Of_Dreams.tlst - 8 tracks
+Fountain_Of_Dreams.tlst - 6 tracks
 
 	Gourmet Race (Melee)
 	W06.brstm (0x2804)
@@ -1528,16 +1513,6 @@ Fountain_Of_Dreams.tlst - 8 tracks
 	Another Dimension
 	Kirby/Another Dimension.brstm
 	Volume: 60
-	Frequency: 40
-
-	Sand Canyon Pyramid
-	Kirby/Sand Canyon Pyramid (KPR).brstm
-	Volume: 65
-	Frequency: 40
-
-	Heavy Lobster
-	Kirby/Heavy Lobster (KRC).brstm
-	Volume: 65
 	Frequency: 40
 
 	The Final Battle
@@ -2125,7 +2100,7 @@ Kongo_Jungle_64.tlst - 1 track
 	Frequency: 40
 
 ################
-Luigis_Mansion.tlst - 10 tracks
+Luigis_Mansion.tlst - 11 tracks
 
 	Adhesion of Blood (Sword of the Berserk: Guts' Rage)
 	NutTracks\Luigis\Adhesion of Blood
@@ -2155,6 +2130,11 @@ Luigis_Mansion.tlst - 10 tracks
 	Foregone Destruction (Unreal Tournament)
 	NutTracks/Luigis/Foregone Destruction
 	Volume: 90
+	Frequency: 40
+
+	Game World 4 (Moon Child)
+	NutTracks\Luigis\Game World 4
+	Volume: 85
 	Frequency: 40
 
 	Luke Jansen - Boss (Rocket Knight Adventures)
