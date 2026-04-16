@@ -3526,19 +3526,19 @@ Saffron_City.tlst - 12 tracks
 	Volume: 80
 	Frequency: 40
 
-	Church of Kondo - Battle! Champion (DP)
+	Dialga's Fight to the Finish
+	Pokemon/Dialga's Fight to the Finish.brstm
+	Volume: 85
+	Frequency: 40
+	
+	Kurausukun - Battle! Champion (DP)
 	NutTracks\Saffron\Battle! Champion (DP)
 	Volume: 85
 	Frequency: 40
 
-	Church of Kondo - Battle! Champion (HGSS)
+	Kurausukun - Battle! Champion (HGSS)
 	NutTracks\Saffron\Battle! Champion (HGSS)
 	Volume: 80
-	Frequency: 40
-
-	Dialga's Fight to the Finish
-	Pokemon/Dialga's Fight to the Finish.brstm
-	Volume: 85
 	Frequency: 40
 
 	Route 10 (BW)
@@ -3596,26 +3596,6 @@ Saffron_City_Day.tlst - 17 tracks
 	Volume: 80
 	Frequency: 40
 
-	Church of Kondo - Battle! Champion (DP)
-	NutTracks\Saffron\Battle! Champion (DP)
-	Volume: 85
-	Frequency: 40
-
-	Church of Kondo - Battle! Champion (HGSS)
-	NutTracks\Saffron\Battle! Champion (HGSS)
-	Volume: 80
-	Frequency: 40
-	
-	Church of Kondo - Goldenrod Game Corner
-	NutTracks\Saffron\Goldenrod Game Corner
-	Volume: 127
-	Frequency: 40
-
-	Church of Kondo - National Park
-	NutTracks\Saffron\National Park
-	Volume: 120
-	Frequency: 40
-
 	Dialga's Fight to the Finish
 	Pokemon/Dialga's Fight to the Finish.brstm
 	Volume: 85
@@ -3629,6 +3609,26 @@ Saffron_City_Day.tlst - 17 tracks
 	Ever Grande City (RS)
 	NutTracks\Saffron\Ever Grande City (RS)
 	Volume: 69
+	Frequency: 40
+
+	Kurausukun - Battle! Champion (DP)
+	NutTracks\Saffron\Battle! Champion (DP)
+	Volume: 85
+	Frequency: 40
+
+	Kurausukun - Battle! Champion (HGSS)
+	NutTracks\Saffron\Battle! Champion (HGSS)
+	Volume: 80
+	Frequency: 40
+	
+	Kurausukun - Goldenrod Game Corner
+	NutTracks\Saffron\Goldenrod Game Corner
+	Volume: 127
+	Frequency: 40
+
+	Kurausukun - National Park
+	NutTracks\Saffron\National Park
+	Volume: 120
 	Frequency: 40
 
 	Route 10 (BW)
