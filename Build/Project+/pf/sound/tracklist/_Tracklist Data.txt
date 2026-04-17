@@ -3489,7 +3489,7 @@ Saffron_City.tlst - 12 tracks
 
 	Battle! AI Sada AI Turo (SV)
 	NutTracks\Saffron\Battle! AI Sada AI Turo (SV)
-	Volume: 67
+	Volume: 55
 	Frequency: 40
 
 	Battle! Champion Blue (Origins)
@@ -3559,7 +3559,7 @@ Saffron_City_Day.tlst - 17 tracks
 
 	Battle! AI Sada AI Turo (SV)
 	NutTracks\Saffron\Battle! AI Sada AI Turo (SV)
-	Volume: 67
+	Volume: 55
 	Frequency: 40
 
 	Battle! Champion Blue (Origins)
