@@ -4,7 +4,7 @@ PAC/PSA
 
 PSA edits for Permafrost Link ice GFX and SFX by white sheep, with credit to Pnut
  - PSA Edited:
-   - Sub Actions 58, Main, GFX, SFX; 59, Main, GFX, SFX; 66 Main, GFX; 6B, GFX; 1DB, Main, GFX, Other; 1DD, Main, GFX, Other
+   - Sub Actions 58, Main, GFX; 59, Main, GFX; 66 Main, GFX; 6B, GFX; 1DB, Main, GFX, Other; 1DD, Main, GFX, Other
    - Sub Routine 0xE498
 
 PSA edit for Motobug Sonic trails by white sheep
