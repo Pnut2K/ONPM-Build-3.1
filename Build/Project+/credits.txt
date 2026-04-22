@@ -213,10 +213,11 @@ JIGGLYPUFF
 WARIO
 
 ROY
-09 - Custom Robo Ray01 Roy by WorseDoughnut, King Bob Gaming with credit to Tryptech
-10 - Green Custom Robo Ray01 Roy by PussPuss, with credit to WorseDoughnut, King Bob Gaming, N!ck
-11 - Gold Custom Robo Ray01 Roy by PussPuss, with credit to WorseDoughnut, King Bob Gaming, N!ck
-12 - Roy00 by radzo73 with credit to WorseDoughnut, King Bob Gaming
+40 - Custom Robo Ray01 Roy by WorseDoughnut, King Bob Gaming with credit to Tryptech, STC by white sheep
+41 - Blue Custom Robo Ray01 Roy by PussPuss, with credit to WorseDoughnut, King Bob Gaming, N!ck, STC by white sheep
+42 - Green Custom Robo Ray01 Roy by PussPuss, with credit to WorseDoughnut, King Bob Gaming, N!ck, STC by white sheep
+43 - Gold Custom Robo Ray01 Roy by PussPuss, with credit to WorseDoughnut, King Bob Gaming, N!ck, STC by white sheep
+45 - Roy00 by radzo73 with credit to WorseDoughnut, King Bob Gaming
 AltZ - Terra-Xehanort Roy by Pnut
 
 TOON LINK
