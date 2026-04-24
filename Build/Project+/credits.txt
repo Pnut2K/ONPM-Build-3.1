@@ -10,6 +10,12 @@ PSA edits for Permafrost Link ice GFX and SFX by white sheep, with credit to Pnu
 PSA edit for Motobug Sonic trails by white sheep
  - PSA Edited: Sub Routine 0x2E5AC
 
+PSA edits for Artemis Fox by ilikepizza107, with updates by white sheep
+ - PSA Edited: Sub Action 1E1, GFX; Sub Action 1E5, GFX
+
+PSA edit for Toucan Sam Falco by white sheep
+ - PSA Edited: Sub Action 1E0, GFX
+
 PSA edits for Marth by SSK and KingJigglypuff, ilikepizza107, with updates by white sheep
  - PSA Added: Sub Routines 0x82C8, 0x8AE0, 0x8EA8
  - PSA Edited: Sub Actions 48, GFX; 49, GFX; 4E, GFX; 50, GFX; 54, GFX; 55, GFX; 58, GFX; 5D, GFX; 60, GFX; 62, GFX; 63, GFX; 64, GFX; 65, GFX; 66, GFX; B0, GFX; B9, GFX; D7, GFX; DC, GFX; E7, GFX; 1D6, GFX; 1D7, GFX; 1D8, GFX; 1D9, GFX; 1DA, GFX; 1DB, GFX; 1DC, GFX; 1DD, GFX; 1DE, GFX; 1E8, GFX; 1EB, GFX; 1EE, GFX; 1EF, GFX; 1F0, GFX; 1F1, GFX; 1F2, GFX; 1F3, GFX; 1F4, GFX
@@ -104,6 +110,7 @@ KIRBY
 
 FOX
 26 - Purple James McCloud by Pnut
+27 - Artemis Fox by ilikepizza107
 30 - Sunglasses Fox by SOULLY
 31 - Blue Sunglasses Fox by SOULLY
 32 - Green Sunglasses Fox by SOULLY
