@@ -104,6 +104,9 @@ KIRBY
 
 FOX
 26 - Purple James McCloud by Pnut
+30 - Sunglasses Fox by SOULLY
+31 - Blue Sunglasses Fox by SOULLY
+32 - Green Sunglasses Fox by SOULLY
 AltR - Slippy Toad by SkySSB with credit to C2P0, Demon_of_Elru, and Pixelcraft
 AltZ - Drip Fox by DHS7, ilikepizza107
 
@@ -111,9 +114,14 @@ PIKACHU
 
 LUIGI
 40 - E-Gadd Luigi by Sylv, RapM
+41 - Black E-Gadd Luigi by Sylv, RapM
+42 - Red E-Gadd Luigi by Sylv, RapM
+43 - Blue E-Gadd Luigi by Sylv, RapM
+44 - Green E-Gadd Luigi by Sylv, RapM
 
 CAPTAIN FALCON
 34 - Zaza Falcon by Pnut, with credit to Erg
+35 - Grey Retro Falcon v2 by white sheep
 AltR - Jet Jaguar Falcon by Peperoncino
 AltZ - Xavier Renegade Angel by Ryztiq
 
