@@ -208,6 +208,11 @@ Big_Shell.tlst - 6 tracks
 ################
 Bobomb_Battlefield.tlst - 4 tracks
 
+	Deadz64 - Dreamscape (009 Sound System)
+	NutTracks\bb\Dreamscape
+	Volume: 80
+	Frequency: 40
+
 	Master Nama - Scatman's World (Scatman John)
 	NutTracks\bb\Scatman's World
 	Volume: 127
@@ -215,7 +220,7 @@ Bobomb_Battlefield.tlst - 4 tracks
 
 	More Tsua - In the End (Linkin Park)
 	NutTracks\bb\In the End
-	Volume: 100
+	Volume: 80
 	Frequency: 40
 	
 	on4word - Flim (Aphex Twin)
@@ -223,9 +228,14 @@ Bobomb_Battlefield.tlst - 4 tracks
 	Volume: 100
 	Frequency: 40
 
+	Soundfont Songs - What Is Love (Haddaway)
+	NutTracks\bb\What Is Love
+	Volume: 80
+	Frequency: 40
+
 	TestSubjectQWTD - Take Me (Casiopea)
 	NutTracks\bb\Take Me
-	Volume: 100
+	Volume: 80
 	Frequency: 40
 
 ################
