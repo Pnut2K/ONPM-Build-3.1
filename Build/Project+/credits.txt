@@ -13,8 +13,9 @@ PSA edit for Motobug Sonic trails by white sheep
 PSA edits for Artemis Fox by ilikepizza107, with updates by white sheep
  - PSA Edited: Sub Action 1E1, GFX; Sub Action 1E5, GFX
 
-PSA edit for Toucan Sam Falco and Orange Brawl Falco by white sheep
+PSA edit for Toucan Sam Falco, Squawks Toucan Sam Falco, and Orange Brawl Falco by white sheep
  - PSA Edited: Sub Action 1E0, GFX
+ - Edits to ef_falco
 
 PSA edits for Marth by SSK and KingJigglypuff, ilikepizza107, with updates by white sheep
  - PSA Added: Sub Routines 0x82C8, 0x8AE0, 0x8EA8
@@ -43,8 +44,8 @@ PSA edits for Rongunshu Ike blue sword trails and Cloud Ike silver sword trails 
 PSA edits for Lucas GFX and SFX by white sheep, with contributions by Pnut; credits to GRAND AZEL, Star, and FireStarMarthy for original assets
  - PSA Added: Subroutine 0x10F28
  - PSA Edited: Sub Actions 51, Main, GFX; 58, SFX, Other; 1CF, Main, SFX; 1D0 Main; 1D6, GFX; 1E2, GFX; 1E3, GFX
- - ef_lucas edits
- - 019.sawnd edits
+ - Edits to ef_lucas
+ - Edits to 019.sawnd
 
 PSA edits for Ness GFX and SFX by white sheep and Pnut, with credits to PK MASTER, GRAND AZEL, and Endersheep12345 for original assets
  - PSA Edited:
@@ -102,6 +103,8 @@ AltZ - Brawlified Breath of the Wild Link by MoeMacCornick, tyleto, radzo73, wit
 SAMUS
 
 YOSHI
+09 - Purple Yoshi v2 by white sheep with credit to davidvkimball, tryptech, MetalLegacy, Layell, SJS, Xenthos
+10 - Orange Yoshi v2 by white sheep with credit to davidvkimball, tryptech, MetalLegacy, Layell, SJS, Xenthos
 
 KIRBY
 40 - Star Red Kirby by influenza, ilikepizza107
@@ -129,6 +132,7 @@ LUIGI
 CAPTAIN FALCON
 34 - Zaza Falcon by Pnut, with credit to Erg
 35 - Phoenix Retro Falcon v2 by white sheep
+36 - Purple Retro Falcon by Layell
 AltR - Jet Jaguar Falcon by Peperoncino
 AltZ - Xavier Renegade Angel by Ryztiq
 
@@ -156,7 +160,8 @@ AltZ - Sephiroth Marth by Vice Versuh, with credit to ShadowSnake, Anivernage, &
 MR. GAME & WATCH
 
 FALCO
-30 - Toucan Sam Falco by SneakyKNG, with cosmetics by SOULLY
+30 - Toucan Sam Falco by SneakyKNG, with cosmetics by white sheep
+31 - Squawks Toucan Sam Falco by Erg, with cosmetics by white sheep; credit to SneakyKNG
 AltR - Mordecai Falco by BillyTGAoBaM
 AltZ - AOSTH Scratch Falco by Bedrock Mods, with credit to Steelclaw
 
@@ -182,8 +187,8 @@ OLIMAR
 AltR - Chef Olimar v2 by Windhunter, Motobug, Guttey
 
 LUCAS
-40 - Pajama Lucas by Toti, with edits by ilikepizza107
-41 - Pajama Claus by Toti, with edits by ilikepizza107
+40 - Pajama Lucas by Toti, with edits by ilikepizza107 and updates by white sheep
+41 - Pajama Claus by Toti, with edits by ilikepizza107, STCs by white sheep
 45 - Virgil Lucas by ilikepizza107
 
 DIDDY KONG
@@ -243,7 +248,7 @@ WOLF
 35 - Grey Kakashi Wolf by Autumn
 
 SNAKE
-25 - Floral Tuxedo Snake by Pnut, with credit to Erg
+25 - Floral Tuxedo Snake by Pnut, with credit to Erg; STCs by white sheep
 AltR - Floral Big Boss Snake by Pnut, with credit to Erg
 AltZ - Terrorist (Counter-Strike: Condition Zero) Snake by Chiller7
 
