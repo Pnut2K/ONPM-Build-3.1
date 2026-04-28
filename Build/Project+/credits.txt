@@ -166,6 +166,7 @@ AltR - Mordecai Falco by BillyTGAoBaM
 AltZ - AOSTH Scratch Falco by Bedrock Mods, with credit to Steelclaw
 
 GANONDORF
+06 - Purple Ganondorf by Moe
 AltR - Black Knight Ganondorf by Nao-chan, with credit to Jocky, HAGURE, Eldiran, RamonM64, Nanobuds, and Aafyre
 AltZ - Freddy Fazbear Ganondorf by StupidMarioFan1
 
@@ -187,6 +188,7 @@ OLIMAR
 AltR - Chef Olimar v2 by Windhunter, Motobug, Guttey
 
 LUCAS
+08 - Kumatora Lucas by Ca$ino Wolf
 40 - Pajama Lucas by Toti, with edits by ilikepizza107 and updates by white sheep
 41 - Pajama Claus by Toti, with edits by ilikepizza107, STCs by white sheep
 45 - Virgil Lucas by ilikepizza107
@@ -275,7 +277,7 @@ L - Da Greenhouse PS2 by Pnut
 
 SMASHVILLE
 Base - Autumn Smashville by Pnut
- - Based off T+ Woodfallville and T+ Windmillville (original creators unknown)
+ - Based off Woodfallville by t_Místico_t with credit to rihuganon, and Windmill-FieldVille by Blazerrr with credit to -SQueen-, acedude
 
 GREAT FAIRY FOUNTAIN by Pnut
 
