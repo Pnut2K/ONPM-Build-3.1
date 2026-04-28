@@ -166,7 +166,10 @@ AltR - Mordecai Falco by BillyTGAoBaM
 AltZ - AOSTH Scratch Falco by Bedrock Mods, with credit to Steelclaw
 
 GANONDORF
+New pose renders & Standard Ganon cosmetics by white sheep, using T+ Modder's Pack
 06 - Purple Ganondorf by Moe
+07 - Pretty Pink Ganondorf by Blazingflare
+08 - Zant Vibrant Ganondorf by Shun_One
 AltR - Black Knight Ganondorf by Nao-chan, with credit to Jocky, HAGURE, Eldiran, RamonM64, Nanobuds, and Aafyre
 AltZ - Freddy Fazbear Ganondorf by StupidMarioFan1
 
@@ -246,6 +249,10 @@ AltZ - Terra-Xehanort Roy by Pnut
 TOON LINK
 
 WOLF
+New STCs by white sheep, using T+ Modder's Pack
+07 - Golden Wolf by PrincessRosalina
+08 - Purple Wolf by Moe, Ca$ino Wolf
+09 - Black & Pink Wolf by Moe, Ca$ino Wolf
 34 - Kakashi Wolf by Autumn
 35 - Grey Kakashi Wolf by Autumn
 
