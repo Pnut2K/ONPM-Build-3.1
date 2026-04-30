@@ -336,6 +336,12 @@ BOWSER'S KEEP by Pnut
  - Carpet texture sourced from vP+ Wario Land
  - Platform model sourced from Legacy MP+ Dive to the Heart
 
+GREEN HILL ZONE
+ - New stage icon by Pnut
+
+PHENDRANA
+ - Cosmetics sourced from IL Project+ Build
+
 ################
 MENUS
 ################
