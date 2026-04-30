@@ -168,6 +168,7 @@ AltZ - AOSTH Scratch Falco by Bedrock Mods, with credit to Steelclaw
 
 GANONDORF
 New pose renders & Standard Ganon cosmetics by white sheep, using T+ Modder's Pack
+05 - GAME0VER! Ganondorf by SOULLY, with credit to Peardian
 06 - Purple Ganondorf by Moe
 07 - Pretty Pink Ganondorf by Blazingflare
 08 - Zant Vibrant Ganondorf by Shun_One
@@ -192,10 +193,11 @@ OLIMAR
 AltR - Chef Olimar v2 by Windhunter, Motobug, Guttey
 
 LUCAS
+Standard Lucas STCs from T+ Modder's Pack
 08 - Kumatora Lucas by Ca$ino Wolf
 40 - Pajama Lucas by Toti, with edits by ilikepizza107 and updates by white sheep
 41 - Pajama Claus by Toti, with edits by ilikepizza107, STCs by white sheep
-45 - Virgil Lucas by ilikepizza107
+45 - wyatt (Virgil) Lucas by ilikepizza107
 
 DIDDY KONG
 25 - amaramist Diddy Kong by amaramist
@@ -328,6 +330,10 @@ Base - ONPM Lylat Cruise by Pnut
 CHAOS ANGEL
 Base - ONPM Chaos Angel by Pnut
  - Based off Chaos Angel by Nezha, Layell, Kirbeast, and GRAND AZEL
+
+BOWSER'S KEEP by Pnut
+ - Carpet texture sourced from vP+ Wario Land
+ - Platform based off Legacy MP+ Dive to the Heart platform
 
 ################
 MENUS
