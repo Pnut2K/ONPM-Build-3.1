@@ -1,11 +1,12 @@
-#####################################################################################
-[Project+] Independent Button Presses v3 [Magus, Eon, DukeItOut]
+######################################################################################
+[Project+] Independent Button Presses v3.1 [Magus, Eon, DukeItOut]
 #
 #
 # v2: 2-frame Z-Sync Extension
 # v3: Omitted solo Wiimotes from considering this code so D-pad inputs 
 #		would stop malfunctioning on them
-#####################################################################################
+# v3.1: Reincorporated solo Wiimotes in a way that allows same-frame direction presses
+######################################################################################
 HOOK @ $80048F64
 {
 	cmpwi r12, 0x2329;	beqlr-;	lbz r5, 8(r5)
@@ -52,8 +53,7 @@ loc_0x3C:
   add r9, r9, r10			# r9 = 805BB000 if Wiimote
   
   lwz r7, 0x40(r9)			# CC = 1, WII = 2, NUN = 3
-  cmpwi r7, 2				# \ Solo Wiimotes struggle to separate consecutive D-Pad inputs
-  beq updateInputHistory	# / 
+  cmpwi cr1, r7, 2			# Solo Wiimotes struggle to separate consecutive D-Pad inputs
   
 loc_0x70:
   lwzu r7, 4(r9)					# Copy a block of 
@@ -67,11 +67,11 @@ loc_0x84:
   stw r7, 0x154(r29)		# Set LA-Basic[85]
   andc r7, r7, r8
   stw r7, 4(r5)
-  
   li r12, 0x2329
+  beq- cr1, soloWiimote			# The below turns walking into running due to double tapping same-frame!
   lis r10, 0x8004;  ori r10, r10, 0xA468	# \ getPadInput
   mtctr r10;  bctrl 						# / 
-  
+soloWiimote:  
   lhz r10, 0x54(r2)
   li r8, 0x8;  mulli r8, r8, 0x1000
   andc r10, r10, r8

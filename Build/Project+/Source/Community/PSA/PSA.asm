@@ -98,6 +98,158 @@ HOOK @ $8077d120
   cmpwi r0, 2 #pointer default functionality
 }
 
+#######################################################
+PSA Command 1F080200 (spawn item variant) [Sammi Husky]
+#######################################################
+* 047C8674 83A3000C
+
+#################################################################
+On hit Action change through Trip Rate v1.31 [MarioDox, Eon (refactor)]
+#################################################################
+v1.2: Automatized, trip rate is decimal action ID change
+v1.25: Added anti-lock behavior, can't change action if it's already in it
+v1.26: Anti-lock behavior works properly
+v1.27: Fixed corruption caused by f1 being overwritten
+v1.31: Update hook to prevent unsafe register usage
+#################################################################
+
+.macro checkTripRate(<TripRateHalf>, <Action>)
+{
+    lis r6, <TripRateHalf>
+    cmpw r5, r6
+    bne 0xC
+    li r3, <Action>
+    b exit
+}
+
+HOOK @ $8076BD50
+{
+    
+    lwz r5, 0x44(r3)
+    lwz r5, 0x40(r5)
+    lwz r5, 0x6C(r5)   
+
+    lwz r3, 0xD8(r3) #original instruction now that we're done with it
+    stw r0, 0x14(r1) #\save registers so that success condition doesnt break them
+    stw r31, 0xC(r1) #/
+
+    %checkTripRate(0x4040, 0x4B)    //3 = floor cripple
+    %checkTripRate(0x4080, 0xBD)    //4 = death
+    %checkTripRate(0x40a0, 0xFF)    //5 = freeze in place
+    %checkTripRate(0x40c0, 0x46)    //6 = speen knockback
+    %checkTripRate(0x40d0, 0x40)    //7 = grab release (horizontal)
+    %checkTripRate(0x40f0, 0x41)    //8 = grab release (vertical)
+    %checkTripRate(0x4330, 0xB0)    //176 = Aerial Screw Attack Jump
+    b %END%
+exit:
+    lis r12, 0x8076
+    ori r12, r12, 0xBDAC
+    mtctr r12 
+    bctr
+}
+
+op nop @ $8076BD54 # Remove register saves in original function so they dont double save 
+op nop @ $8076BD58 # Not necessary but feels messy without, and means r0/r31 would be usable in above code
+
+.include Source/Community/PSA/CreateAndThrowItem.asm
+
+##############################################################
+Store hit Task in LA/RA-Basic 6 [MarioDox]
+##############################################################
+# LA/RA-Basic 6 must contain "741EF1D" (THIEF ID) to get the hit task
+.macro storeTaskandCheck(<reg1>,<reg2>)
+{
+    lwz        r12, 0x60(<reg1>)    # get the address for accessing basics
+    lwz        r12, 0xD8(r12)
+    lwz        r12, 0x64(r12)
+    lwz        r12, 0x20(r12)        # LA
+    lwz        r12, 0x0C(r12)        # Basic
+     lwz         r11, 0x18(r12)        # 6
+    lis        <reg2>, 0x0741        # \ Check if it's
+    ori        <reg2>, <reg2>, 0xEF1D    # / 0741EF1D(THIEF-ID)
+    cmpw        <reg2>, r11
+    beq-        write
+    lwz        r12, 0x60(<reg1>)    # get the address for accessing basics
+    lwz        r12, 0xD8(r12)
+    lwz        r12, 0x64(r12)
+    lwz        r12, 0x24(r12)        # RA
+    lwz        r12, 0x0C(r12)        # Basic
+     lwz         r11, 0x18(r12)        # 6
+    cmpw        <reg2>, r11        # Check if it's 0741EF1D(THIEF-ID)
+    beq-        write
+    b        end
+write:
+    stw        r3, 0x18(r12)        # Store hit task in XX Basic 6
+end:
+    mr        <reg2>, r3        # original op
+}
+HOOK @ $8083fbbc #notifyEventCollisionAttack/[Fighter]
+{
+    %storeTaskandCheck(r29,r27)
+}
+HOOK @ $808e53cc #notifyEventCollisionAttack/[Weapon]
+{
+    %storeTaskandCheck(r26,r29)
+}
+HOOK @ $80aa991c #notifyEventCollisionAttack/[wnLucarioAuraBall]
+{
+    %storeTaskandCheck(r27,r30)
+}
+
+#############################################################
+Raycast Requirement (0x19) Supports Variables for x,y,z [Eon]
+#############################################################
+.macro getVariable() 
+{
+    addi r3, r1, 1048
+    
+    stw r28, 0x10(r3)
+    lis r12, 0x8077
+    ori r12, r12, 0xE0CC
+    mtctr r12
+    bctrl 
+}
+#get soValueAccesser into place
+#X
+HOOK @ $807838B4 8127ee50
+{
+orig:
+    fdivs f31, f1, f0
+
+    lwz r4, 0x0(r3)
+    cmpwi r4, 0x5
+    bne %end% 
+    li r4, 0
+    %getVariable()
+    fmr f31, f1
+}
+#Y
+HOOK @ $80783918 
+{
+orig:
+    fdivs f30, f1, f0
+
+    lwz r4, 0x0(r3)
+    cmpwi r4, 0x5
+    bne %end%
+    li r4, 1
+    %getVariable()
+    fmr f30, f1
+}
+#Z
+HOOK @ $8078397C 
+{
+orig:
+    fdivs f0, f1, f0
+
+    lwz r4, 0x0(r3)
+    cmpwi r4, 0x5
+    bne %end%
+    li r4, 2
+    %getVariable()
+    fmr f0, f1
+}
+
 #######################
 !Raycast debugger [Eon]
 #######################
@@ -190,43 +342,6 @@ HOOK @ $80086a24
     cmpwi r29, 0
 }
 
-#######################################################
-PSA Command 1F080200 (spawn item variant) [Sammi Husky]
-#######################################################
-* 047C8674 83A3000C
-
-#################################################################
-On hit Action change through Trip Rate [MarioDox, Eon (refactor)]
-#################################################################
-.macro checkTripRate(<TripRateHalf>, <Action>)
-{
-    lis r6, <TripRateHalf>
-    cmpw r5, r6
-    bne 0xC
-    li r3, <Action>
-    b exit
-}
-HOOK @ $8076BD5C
-{
-    mr r31, r4
-    lwz r5, 0x44(r5)
-    lwz r5, 0x40(r5)
-    lwz r5, 0x6C(r5)    
-    %checkTripRate(0x4040, 0x4B)    //3 = floor cripple
-    %checkTripRate(0x4080, 0xBD)    //4 = death
-    %checkTripRate(0x40a0, 0xFF)    //5 = freeze in place
-    %checkTripRate(0x40c0, 0x46)    //6 = speen knockback
-    %checkTripRate(0x40d0, 0x40)    //7 = grab release (horizontal)
-    %checkTripRate(0x40f0, 0x41)    //8 = grab release (vertical)
-	%checkTripRate(0x4330, 0xB0)    //176 = Aerial Screw Attack Jump
-    b %end%
-exit:
-    lis r12, 0x8076
-    ori r12, r12, 0xBDAC
-    mtctr r12 
-    bctr
-}
-
 #######################################################################
 !Char Specific Paralyze Effect [MarioDox]
 #######################################################################
@@ -247,49 +362,4 @@ HOOK @ $8085c684 #onParalyzeDamage
 default:
 	li r4, 0x0
 	addi r4, r4, 0x002D		#Common gfx, dizzy spark
-}
-
-.include Source/Community/PSA/CreateAndThrowItem.asm
-
-##############################################################
-Store hit Task in LA/RA-Basic 6 [MarioDox]
-##############################################################
-# LA/RA-Basic 6 must contain "741EF1D" (THIEF ID) to get the hit task
-.macro storeTaskandCheck(<reg1>,<reg2>)
-{
-    lwz        r12, 0x60(<reg1>)    # get the address for accessing basics
-    lwz        r12, 0xD8(r12)
-    lwz        r12, 0x64(r12)
-    lwz        r12, 0x20(r12)        # LA
-    lwz        r12, 0x0C(r12)        # Basic
-     lwz         r11, 0x18(r12)        # 6
-    lis        <reg2>, 0x0741        # \ Check if it's
-    ori        <reg2>, <reg2>, 0xEF1D    # / 0741EF1D(THIEF-ID)
-    cmpw        <reg2>, r11
-    beq-        write
-    lwz        r12, 0x60(<reg1>)    # get the address for accessing basics
-    lwz        r12, 0xD8(r12)
-    lwz        r12, 0x64(r12)
-    lwz        r12, 0x24(r12)        # RA
-    lwz        r12, 0x0C(r12)        # Basic
-     lwz         r11, 0x18(r12)        # 6
-    cmpw        <reg2>, r11        # Check if it's 0741EF1D(THIEF-ID)
-    beq-        write
-    b        end
-write:
-    stw        r3, 0x18(r12)        # Store hit task in XX Basic 6
-end:
-    mr        <reg2>, r3        # original op
-}
-HOOK @ $8083fbbc #notifyEventCollisionAttack/[Fighter]
-{
-    %storeTaskandCheck(r29,r27)
-}
-HOOK @ $808e53cc #notifyEventCollisionAttack/[Weapon]
-{
-    %storeTaskandCheck(r26,r29)
-}
-HOOK @ $80aa991c #notifyEventCollisionAttack/[wnLucarioAuraBall]
-{
-    %storeTaskandCheck(r27,r30)
 }

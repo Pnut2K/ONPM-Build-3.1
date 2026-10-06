@@ -1,202 +1,79 @@
-Move Hitbox And Hitbox Decleration allow Size and position to be specified with a variable [Eon]
-* C274AC24 00000009
-* C85F0010 80830000
-* 2C040005 40820034
-* 80830004 807B00D8
-* 80630064 3D80807A
-* 618CCBB4 7D8903A6
-* 4E800421 FC000890
-* 3D808074 618CAC44
-* 7D8903A6 4E800420
-* 60000000 00000000
-* C274ACA4 00000009
-* C85F0010 80830000
-* 2C040005 40820034
-* 80830004 807B00D8
-* 80630064 3D80807A
-* 618CCBB4 7D8903A6
-* 4E800421 FC000890
-* 3D808074 618CACC0
-* 7D8903A6 4E800420
-* 60000000 00000000
-* C274AD20 00000009
-* C85F0010 80830000
-* 2C040005 40820034
-* 80830004 807B00D8
-* 80630064 3D80807A
-* 618CCBB4 7D8903A6
-* 4E800421 FC000890
-* 3D808074 618CAD3C
-* 7D8903A6 4E800420
-* 60000000 00000000
-* C274B6E8 00000009
-* 80030004 80830000
-* 2C040005 40820034
-* 80830004 807D00D8
-* 80630064 3D80807A
-* 618CCBB4 7D8903A6
-* 4E800421 FC000890
-* 3D808074 618CB710
-* 7D8903A6 4E800420
-* 60000000 00000000
-* C274B770 00000009
-* 80030004 80830000
-* 2C040005 40820034
-* 80830004 807D00D8
-* 80630064 3D80807A
-* 618CCBB4 7D8903A6
-* 4E800421 FC000890
-* 3D808074 618CB798
-* 7D8903A6 4E800420
-* 60000000 00000000
-* C274B7F8 00000009
-* 80030004 80830000
-* 2C040005 40820034
-* 80830004 807D00D8
-* 80630064 3D80807A
-* 618CCBB4 7D8903A6
-* 4E800421 FC000890
-* 3D808074 618CB820
-* 7D8903A6 4E800420
-* 60000000 00000000
-* C274B880 00000009
-* 80030004 80830000
-* 2C040005 40820034
-* 80830004 807D00D8
-* 80630064 3D80807A
-* 618CCBB4 7D8903A6
-* 4E800421 FC000890
-* 3D808074 618CB8A8
-* 7D8903A6 4E800420
-* 60000000 00000000
-
-Graphic effects accept variable arguments for rotation and rand elements [Eon]
-
-.macro checkVariable(<argPointer>) 
+#######################################################################
+Variable 10xxxx range gets and sets projectile creator data [DukeItOut]
+#######################################################################
+# Allows objects created by fighters to access the fighter's
+# variables without the fighter needing to copy into arbitrary
+# offsets to achieve this.
+#
+# Example:
+#
+# LA-Basic 100054 gets LA-Basic 54 (costume ID) from a fighter if
+# 	the item or projectile was created by them!
+#
+# Works with if statements, setting and getting variables.
+# Does not work for indicating a sum, difference, product or quotient.
+#
+# Dependent on Heritage.asm!
+# 80003FF0 is a custom function for getting the fighter!
+#######################################################################
+.macro GetCreatorLogic()
 {
-    #make r3 the pointer to argument list
-    addi r3, r1, <argPointer>
-    #add variable accessor as part of passed arg
-    lwz r4, 0x10(r3)
-    stw r4, 0x14(r3)
-    
-    stw r31, 0x10(r3)
-    #look at top of arg list
-    li r4, 0
-    #get Float, will auto handle scalars and variables
-    lis r12, 0x8077
-    ori r12, r12, 0xE0CC
-    mtctr r12
-    bctrl
-    #puts result in correct place
-    fmr f0,f1
-    lwz r4, (0x14+<argPointer>)(r1)
-    stw r4, (0x10+<argPointer>)(r1)
-
-    #expects after it a break that takes you to the float write that the game usually performs
-}
-##########
-#DETACHED# 0x111b1000
-##########
-#Zrot
-CODE @ $807A5AE0
-{
-    %checkVariable(0x818)
-}
-#Yrot
-CODE @ $807A5B5C
-{
-    %checkVariable(0x818)
-}
-#Xrot
-CODE @ $807A5BD8
-{
-    %checkVariable(0x818)
-}
-#ZOffsetRand
-CODE @ $807A5D8C
-{
-    %checkVariable(0x818)
-}
-#YOffsetRand
-CODE @ $807A5E08
-{
-    %checkVariable(0x818)
-}
-#XOffsetRand
-CODE @ $807A5E84
-{
-    %checkVariable(0x818)
-}
-#ZRotRand
-CODE @ $807A5F00
-{
-    %checkVariable(0x818)
-}
-#YRotRand
-CODE @ $807A5F7C
-{
-    %checkVariable(0x818)
-}
-#YRotRand
-CODE @ $807A5FF8
-{
-    %checkVariable(0x818)
-}
-
-##########
-#ATTACHED# 0x11010a00 
-##########
-#Zrot
-CODE @ $807A74D0
-{
-    %checkVariable(0x798)
-}
-#Yrot
-CODE @ $807A754C
-{
-    %checkVariable(0x798)
-}
-#Xrot
-CODE @ $807A75C8
-{
-    %checkVariable(0x798)
-}
-
-###################################################
-Set Momentum Command May Take Variables [DukeItOut]
-###################################################
-# 
-# Lets Command 0E080200 take variables instead of
-# only scalar "float" constants.
-###################################################
-.macro Function(<float>,<lwPointer>)
-{
-	lwz r5, 0(r3)	# Get argument type. 
-	lwz r4, 4(r3)	# Original operation. Gets argument
-	cmpwi r5, 5		# \ If it isn't a variable, assume it is a scalar!
-	bne+ %END%		# /
-	
-	mr r3, r31
-					# r4 contains desired variable
-	li r5, 0
-	lis r12, 0x8079
-	ori r12, r12, 0x6F14
-	mtctr r12	
-	bctrl			# access the float variable wanted!	
-	fmr <float>, f1
-	
-	lis r12, 0x8079
-	ori r12, r12, <lwPointer>
+	lwz r3, 0x8(r3)
+	lwz r12 0x90(r3)
+	lwz r12, 0xC4(r12)
 	mtctr r12
-	bctr
-
+	bctrl
+	mr r4, r3				#
+	li r5, 0				# r5 will be a pointer to write to if non-zero!
+	lis r6, 0x80B8			# \ Fighter Manager
+	lwz r3, 0x7C28(r6) 		# /
+	bla 0x815CB0			# Get the fighter entry	
+	mr r4, r3				# /
+	lwz r3, 0x7C28(r6) 		# Fighter Manager
+	li r5, -1				# \
+	bla 0x814F20			# / Get the fighter pointer	
+	lwz r3, 0x60(r3) 		# Get the module accessor!
 }
-HOOK @ $80793100
+.macro GetCreatorVar()
 {
-	%Function(f31,0x3130)
+	mr r29, r3 			# Original operation
+	andis. r6, r4, 0x0F # we want the second byte to control this (0x80 here is used for negative)
+	beq+ normal			# if zero, it's normal!
+	lis r6, 0x1			# \ 100,000
+	ori r6, r6, 0x86A0	# /
+	sub r4, r4, r6		# remove 100,000 so that the game can get the right one!
+	mr r30, r4			# modify to be something more easily understood!
+	bla 0x3FF0			# Get fighter of origin!
+	mr r4, r30  # Restore
+	mr r5, r31	# Restore
+normal:
+	rlwinm. r6, r4, 4, 28, 31	# condition that was overwritten by above code
 }
-HOOK @ $80793178
+.macro GetCreatorSetVar()
 {
-	%Function(f0,0x31A8)
+	lwz r30, 4(r3)	# Get LA/RA/IC variable. Original operation
+	andis. r5, r30, 0x0F # we want the second byte to control this (0x80 here is used for negative)
+	beq+ %END%
+	lwz r3, 0x30(r29)	
+	bla 0x3FF0			# Get fighter of origin!
+	lwz r28, 0x70(r3)	# work variable manager
+	lis r6, 0x1			# \ 100,000
+	ori r6, r6, 0x86A0	# /
+	sub r30, r30, r6	# - 100,000
+}
+HOOK @ $80796F3C # Get Float
+{
+	%GetCreatorVar()
+}
+HOOK @ $8079712C # Get Int
+{
+	%GetCreatorVar()
+}
+HOOK @ $807AD01C # Commands (to allow setting ints from PSA)
+{ 
+	%GetCreatorSetVar()
+}
+HOOK @ $807AD42C # Commands (to allow setting floats from PSA)
+{
+	%GetCreatorSetVar()
 }

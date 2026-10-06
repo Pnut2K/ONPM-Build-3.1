@@ -426,12 +426,14 @@ bail:
 }
 
 
-#######################################
-Handle Dead Types [Kapedani, DukeItOut]
+#############################################
+Handle Dead Types v1.1 [Kapedani, DukeItOut]
 # DeadType 4 (vanilla) - crush
-# DeadType 5 - stamina explode death
+# DeadType 5 - stamina knockout
+# DeadType 6 - stamina explode death
 # DeadType 6 - explode death from hitbox
-#######################################
+# DeadType 7 - stamina explode death (self-destruct)
+#############################################
 .alias g_stLoaderManager            = 0x80B8A6D0
 .alias g_ecMgr						= 0x805a0148
 .alias ecMgr__setEffect 			= 0x8005F7E0
@@ -476,8 +478,8 @@ HOOK @ $8087bf40	# ftStatusUniqProcessDead::initStatus
 	bctrl					# /
 	stw r3, 0x7C(r1)	# Store on stack
 	cmpwi r3, 4         # \
-    beq- createMoney    # | check if 4 or 5
-    cmpwi r3, 5	        # |
+    beq- createMoney    # | check if 4 or 7
+    cmpwi r3, 7	        # |
 	bne+ end            # /
 createMoney:
 	%branch(0x8087c198)	# create money as if dying from bottom blast zone

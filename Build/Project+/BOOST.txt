@@ -8,6 +8,8 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/LegacyTE/Replays.asm
 
 .include Source/Project+/StageFiles.asm
+.include Source/Project+/MyMusic.asm
+.include Source/Project+/Random.asm
 .include Source/Project+/CustomRequirements.asm
 .include Source/Project+/Shake.asm
 .include Source/Project+/Slippery.asm
@@ -28,7 +30,6 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/ProjectM/SpecialModes/Rules.asm
 .include Source/ProjectM/SpecialModes/Stamina.asm
 .include Source/ProjectM/SpecialModes/Turbo.asm
-.include Source/ProjectM/SpecialModes/War.asm
 .include Source/ProjectM/SpecialModes/Wild.asm
 .include Source/ProjectM/SpecialModes/Zero2Death.asm
 
@@ -65,8 +66,10 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/Community/PassiveAnim.asm
 .include Source/Community/Subspace.asm
 .include Source/Community/SubspaceSwap.asm
+.include Source/Community/BarrelCannon.asm
 .include Source/Community/WallAttach.asm
 .include Source/Community/lavaInjectLoader.asm
+.include Source/Community/FSMeter.asm
 
 .include Source/Community/PSA/Angle.asm
 .include Source/Community/PSA/IC-Basics.asm
@@ -79,8 +82,6 @@ op blt- 0x34	   @ $8018CFC8
 #.include Source/Project+/TexFlags.asm	# This code is currently having issues interacting with the Code Menu. Included 
 					# to allow an understanding of how it will mechanically work in the future.
 
-.include Source/Extras/Console.asm	# Only use this on a Wii or Wii U! The codes in this are necessary for the slower specifications of the actual console.
-#.include Source/Extras/Netplay.asm	# Only use this in Dolphin! The codes in this will result in bad behavior on the Wii!
+.include Source/Extras/Console.asm    # Console-specific codes only for use with Wii or Wii U systems
 
 .include Source/Extras/More.asm
-.include Source/Extras/BarrelCannon.asm

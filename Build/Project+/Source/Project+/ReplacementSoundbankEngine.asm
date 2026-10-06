@@ -1,5 +1,5 @@
 #############################################################################################################################################################
-[Project+] RSBE v1.40 (/Project+/pf/sfx, can load soundbank clones for stages and items) (requires CSSLE) [InternetExplorer, DukeItOut, QuickLava, Kapedani]
+[Project+] RSBE v1.41 (/Project+/pf/sfx, can load soundbank clones for stages and items) (requires CSSLE) [InternetExplorer, DukeItOut, QuickLava, Kapedani]
 #
 # 1.31: The RWSD location check is now independent of Sound Resource size.
 # 1.31a: SAWNDs Can Now Overwrite vBrawl's Header/Data Lengths (Requires FilePatchCodeSawndHeader.asm)
@@ -7,6 +7,7 @@
 # 1.33: Allow common sawnds to have soundbank clones
 # 1.34: Don't try to load override sawnds if override is empty
 # 1.40: Merged in Header/Data Length Patching Logic, SAWNDs now load via SD Stream (FilePatchCodeSawndHeader.asm no longer required)
+# 1.41: Initializes new table for custom soundbanks to avoid errors. (SFXExpand.asm required)
 #############################################################################################################################################################
 .alias sprintf                      = 0x803F89FC
 .alias strcat                       = 0x803FA384
@@ -22,8 +23,6 @@
 .alias PKM_OVERRIDE_STR_ADDR        = 0x80B51908
 .alias STAGE_ITEM_STR_ADDR          = 0x80B5198A
 .alias SND_OVERRIDE_STR_ADDR        = 0x80B524E8
-.alias CustomBankOff_Hi             = 0x000E
-.alias CustomBankOff_Lo             = 0x3C6C
 string[2] "/Project+/pf/sfx/%03X",".sawnd" @ $805A7D18
 .alias sfxFolderStringAddr          = 0x805A7D24  # Points to the "/sfx" part 0xC chars into the above string.
 .alias SawndStreamSlotID            = 0x10
@@ -76,12 +75,6 @@ HOOK @ $801C81B8	# [in "LoadGroup/[nw4r3snd6detail18SoundArchiveLoaderFUlPQ34nw]
   %lwi(r27, SawndStreamStatusBufferAddr) # Setup Address to Sawnd Stream Peek/Status Array in r27!
   
   addi r26, r26, 0x07   # Add 7 to the incoming Soundbank Info Index to get its ID...
-  
-  cmplwi r26, 0x014b                 # \
-  blt- skipIDPatch                   # | Check if this is a custom soundbank, cuz if so...
-  addis r3, r28, CustomBankOff_Hi    # | ... we need to patch its ID in.
-  stw r26, CustomBankOff_Lo(r3)      # / Store custom ID in the Reserved Custom Bank Group entry (offset 0xE3C6C)
-skipIDPatch:
 
   lis r3, 0x805A
   ori r3, r3, 0x7D00
@@ -288,8 +281,15 @@ streamOpened:
   subi r8, r26, 0x7		# Get Group Info ID					
   cmplwi r8, 0x0144		# Check if this is a custom soundbank,
   blt- notCustomBank
-  addis r3, r28, CustomBankOff_Hi    # \ if it is, get pointer to Reserved Custom Bank Group entry
-  addi r3, r3, CustomBankOff_Lo      # / (INFO Section Address + 0xE3C6C)
+  mr r5, r28		# Custom banks have info 
+  lbz r3, 0x20(r5)
+  lwz r4, 0x24(r5)
+  bla 0x1D3698			# Data ref access
+  mr r5, r28
+  addi r4, r3, 0xA20	# 0x144 * 8 = 0xA20
+  lbz r3, 4(r4)
+  lwz r4, 8(r4)			# Normally E3C6C
+  bla 0x1D3698			# Gets pointer info for bank 144
   b sawndHeaderLenCalc
 notCustomBank:
   mulli r8, r8, 0x8			# Multiply Info ID by 8 to index into vec
@@ -389,8 +389,24 @@ streamGood:                  # But otherwise...
   
 patchingLoopHead:
   lwzu r3, 0x08(r20)         # Push r20 to current Group Entry offset, and load its value!
-  add r3, r29, r3            # Add that offset to the INFO Section address to get Group Entry address.
   
+  cmpwi r26, 0x14B			 # But if it is a custombank... (0x144+7)
+  blt notCustom
+  
+  lis r3, 0x8053
+  ori r3, r3, 0xED00
+  lwz r3, -8(r3)
+  subi r4, r26, 0x14B
+  mulli r4, r4, 0x28
+  add r3, r3, r4
+  mfctr r5
+  andi. r5, r5, 1	# 2 is first, then 1
+  mulli r5, r5, 0x14
+  add r3, r3, r5
+  b 0x8 # We are not doing the below command
+notCustom:
+  add r3, r29, r3            # Add that offset to the INFO Section address to get Group Entry address.
+
   lwzu r5, 0x0C(r22)         # Push r22 to current set of File Info Triplets, and load File ID!
 
   rlwinm r4, r5, 3, 0, 28    # Multiply the ID by 8, for use in indexing into the File ID list.

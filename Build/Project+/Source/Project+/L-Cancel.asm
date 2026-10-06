@@ -146,7 +146,7 @@ lcancel:
 	%setInt(0x1000005a)
 end:
 	lwz r31, 0xC(r1)
-  lwz r30, 0x10(r1)
+	lwz r30, 0x10(r1)
 	lwz r0, 0x34(r1)
 	mtlr r0
 	addi r1, r1, 0x30
@@ -155,15 +155,15 @@ end:
 
 
 #############################################################################################################################################################
-L-Cancel Landing Lag and Success Rate and Score Display is Auto L-Cancel Option + White L-cancel Flash v3.1 [Magus, Standardtoaster, wiiztec, Eon, DukeItOut]
+L-Cancel Landing Lag and Success Rate and Score Display is Auto L-Cancel Option + White L-cancel Flash v3.1b [Magus, Standardtoaster, wiiztec, Eon, DukeItOut, mawwwk]
 #
 # 3.1: Added replay support
 #############################################################################################################################################################
 #check frame = 6 and disable flash
 HOOK @ $80874850 
 {
-	cmpwi r3, 0x5
-	mr r31, r3
+	cmpwi r3, 5
+	mr r31, r3		# Original op
 	bne end
 	#soColorBlendModule
 	lwz r3, 0xD8(r28)
@@ -178,9 +178,9 @@ end:
 }
 #land and detect lcancel state, set flash and stat appropriately
 op nop @ $8081BE8C
+
 HOOK @ $8087459C
 {
-loc_0x0:
 #get LA-Basic[90]
   lwz r3, 0xD8(r31)
   lwz r3, 0x64(r3)
@@ -190,7 +190,7 @@ loc_0x0:
   lwz r12, 0x0(r3)
   lwz r12, 0x18(r12)
   mtctr r12
-  bctrl 
+  bctrl
   cmpwi r3, 0
   ble checkForAutoLcancel
 trueLcancel:
@@ -221,51 +221,42 @@ trueLcancel:
   ori r0, r0, 0xFF00
   addi r4, r1, 0x18
   stw r0, 0(r4)
-  #true
-  li r5, 1
-
-  lwz r12, 0x0(r3)
+  
+  li r5, 1		# true
+  lwz r12, 0(r3)
   lwz r12, 0x28(r12)
   mtctr r12
   bctrl
+  
   li r6, 1
   b applyLcancel
 checkForAutoLcancel:  
   li r6, 0
-  # lis r11, 0x9017
-  # ori r11, r11, 0xF36B
-  # lbz r11, 0(r11)
-  # cmpwi r11, 0x1
   lis r11, 0x805A
-  lwz r11, 0xE0(r11)	
-  lwz r11, 0x08(r11)		
+  lwz r11, 0xE0(r11)
+  lwz r11, 0x08(r11)
   lbz r11, 0xE5(r11)	# 0x4D (+ 0x98)
-  andi. r11, r11, 1	# bit used for ALC
+  andi. r11, r11, 1		# bit used for ALC
   beq calcStat
-applyLcancel:  
-#load 0.5
 
-  lfs f0, -23448(r2)
+applyLcancel:
+  lfs f0, -0x5B98(r2)		# Load 0.5
   fmuls f30, f30, f0
 
-#everything past this point is for the stat
 calcStat:
-#add one to total aerial count
-  cmpwi r6, 0x0
-  lis r6, 0x80B8
-  ori r6, r6, 0x8394
-  lfs f6, 0(r6)
-  #gets a pointer to LA-Basic data
-  lwz r4, 0xD8(r31)
+  cmpwi r6, 0				# Check whether to increment L-cancel aerial count later
+  lis r12, 0x80B8			# Load 1.0
+  ori r12, r12, 0x8300
+  lfs f6, 0x94(r12)
+  lwz r4, 0xD8(r31)			# Get pointer to LA-Basic data
   lwz r4, 0x64(r4)
   lwz r4, 0x20(r4)
   lwz r4, 0xC(r4)
-
-  lfs f5, 0x238(r4)
+  lfs f5, 0x238(r4)			# Increment total landing aerial count
   fadds f5, f5, f6
   stfs f5, 0x238(r4)
-
-  lis r5, 0x80B8
+  
+  lis r5, 0x80B8			# Get per-port address?
   lwz r5, 0x7C28(r5)
   lwz r5, 0x154(r5)
   lwz r5, 0(r5)
@@ -274,112 +265,40 @@ calcStat:
   rlwinm r6, r6, 0, 24, 31
   mulli r6, r6, 0x244
   add r5, r5, r6
-  lwz r5, 40(r5)
+  lwz r5, 0x28(r5)
   addi r5, r5, 0x850
+  lfs f4, 0x23C(r4)		# Load L-canceled aerial count
+  ble recalculate
+  fadds f4, f6, f4		# If successful, add 1 to L-canceled aerial count
+  stfs f4, 0x23C(r4)
 
-#check lcancel occured
-  ble loc_0x98
-#successful L-cancel
-  lis r6, 0x80B8
-  ori r6, r6, 0x8394
-  lfs f6, 0(r6)
-  lfs f4, 572(r4)
-  fadds f4, f6, f4
-  stfs f4, 572(r4)
-
-loc_0x98:
-  lfs f4, 572(r4)
-  fdivs f5, f4, f5
-  lis r6, 0x80B8
-  ori r6, r6, 0x83A0
-  lfs f6, 0(r6)
-  fmuls f5, f6, f5
+recalculate:			# For results screen stats
+  fdivs f5, f4, f5		# Divide by total landing aerial count to get %
+  lfs f6, 0xA0(r12)		# Load 100.0
+  fmuls f5, f6, f5		# 100.0 * percent
   fctiwz f5, f5
-  stfd f5, 48(r2)
-  lhz r12, 54(r2)
-  stw r12, 0(r5)
-  fctiwz f30, f30
-  stfd f30, 16(r2)
-  lhz r12, 22(r2)
-  lfd f0, -31632(r2)
+  stfd f5, 0x30(r2)
+  lhz r3, 0x36(r2)		# Percentage stored as an int
+  stw r3, 0(r5)
+  
+  fctiwz f30, f30		# Landing lag animation speed modifier
+  stfd f30, 0x10(r2)
+  lhz r12, 0x16(r2)
+  lfd f0, -0x7B90(r2)
   lis r3, 0x4330
-  ori r3, r3, 0x0
-  stw r3, 16(r2)
-  xoris r12, r12, 32768
-  stw r12, 20(r2)
-  lfd f30, 16(r2)
+  stw r3, 0x10(r2)
+  xoris r12, r12, 0x8000
+  stw r12, 0x14(r2)
+  lfd f30, 0x10(r2)
   fsub f30, f30, f0
   fadds f31, f31, f1
   fdivs f31, f31, f30
-
-
 }
 
 ##############################################
 Disable Aerial Attack Landing Lag IASA [Magus]
 ##############################################
-* 04FAF168 800000FF
-
-########################################
-Remove grabbing Items with Aerials [Eon]
-########################################
-CODE @ $80FC2798
-{
-  word 0x00020000; word 0
-  word 0x00020000; word 0
-  word 0x00020000; word 0
-}
-
-#############################################
-Aerial Staling Set before Subaction Set [Eon]
-#############################################
-#nair
-CODE @ $80FC2820
-{
-  word 0x0C1C0200; word 0x80FB2EC4
-  word 0x04000100; word 0x80FB2EBC
-}
-#fair
-CODE @ $80FC2848
-{
-  word 0x0C1C0200; word 0x80FB2F04
-  word 0x04000100; word 0x80FB2EFC
-}
-#bair
-CODE @ $80FC2860
-{
-  word 0x0C1C0200; word 0x80FB2F1C
-  word 0x04000100; word 0x80FB2F14
-}
-#uair
-CODE @ $80FC2888
-{
-  word 0x0C1C0200; word 0x80FB2F54
-  word 0x04000100; word 0x80FB2F4C
-}
-#dair
-CODE @ $80FC28A0
-{
-  word 0x0C1C0200; word 0x80FB2F6C
-  word 0x04000100; word 0x80FB2F64
-}
-
-#############################################################
-Teeter Cancelling [Shanus, Yeroc, Dantarion, Wind Owl, Magus]
-#############################################################
-.alias Teeter_Loc = 0x80546120
-
-CODE @ $80546120
-{
-  word 2; word Teeter_Loc+0x8
-  word 0x02010200; word 0x80FAF3EC
-  word 0x00070100; word 0x80FABBB4
-  word 0x00080000; word 0;
-}
-CODE @ $80FC1C58
-{
-  word 0x00070100; word Teeter_Loc
-}
+op lwz r0, 0xFF(r0) @ $80FAF168
 
 ##############################################
 Ignore Damage Gauge Setting [InternetExplorer]
@@ -413,7 +332,7 @@ HOOK @ $8004FF64
 	lwz r12, 0x08(r12)
 	lbz r6, 0xE5(r12)	# 0x4D (+ 0x98)
 	andi. r6, r6, 0xFC	# Clear lowest two bits
-	lis r4, 0x9018; 
+	lis r4, 0x9018
 	
 	lbz r5, -0xC94(r4)	# 9017F36C
 	cmpwi r5, 1

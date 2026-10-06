@@ -142,7 +142,7 @@ Table_Skip:
 	.RESET
 
 ###########################################################################################################################################################
-[Project+] SoundBank Expansion System (RSBE.Ver) v2.5 [codes, DukeItOut, JOJI]
+[Project+] SoundBank Expansion System (RSBE.Ver) v2.5b [codes, DukeItOut, JOJI]
 # v1.1 - Kirbycide Fix + Voice clips volume fix + CSS Hiccup Fix
 # v1.2 - Fixes Mr. Resetti's brsar conflicts
 # v2.0 - Removed Sound Resource table occupation and made dynamic to better support resource size changes
@@ -152,6 +152,7 @@ Table_Skip:
 # v2.3 - Added a safety to prevent crashing when attempting to load a custom soundbank that failed to be found.
 # v2.4 - Fixed issue where sounds could be paired with the wrong soundbanks if not played the moment they are called.
 # v2.5 - Increased stability of sample check to avoid introduced error where the wrong bank was accessed sometimes.
+# v2.5b- Fixed oversight related to the Home Menu
 #
 # 90432134 references -> Sound Resource + 0x298934-to-0x29897F
 # 901A3090 references -> Written to CodeFlag+0x4
@@ -167,6 +168,8 @@ Table_Skip:
 .alias normalMusic_Lo		= 0x26F9	# Brawl music lower range
 .alias normalMusic_Hi		= 0x286B	# Brawl music upper range
 .alias MrResettiBank		= 2			# What it expects if this is Mr. Resetti's special brsar
+.alias PointerBlock			= 0x8053ED00
+.alias TableBlockPtr		= 0x801C75A4
 
 	.BA<-TablePointer
 	.BA->$801C75A4
@@ -222,6 +225,15 @@ TablePointer:
 	0x000D4FDC, 0x00000001, |
 	0x01000000, 0x000D4FE8
 	
+.alias Table1Size = 0x48
+.alias Table2Size = 0x48
+.alias Table3Size = Table2Size	
+.alias Table4Size = 0x28
+.alias Table5Size = Table4Size
+.alias Table2Offset = Table1Size
+.alias Table3Offset = Table2Size + Table2Offset
+.alias Table4Offset = Table3Size + Table3Offset
+.alias Table5Offset = Table4Size + Table4Offset	
 	
 SkipTable:
 	.RESET
@@ -269,6 +281,30 @@ HOOK @ $801C78EC
   li r0, MaxCustomBank
 }
 ###################################
+.macro mimicSnd(<reg>)
+{
+  rlwinm r0, <reg>, 3, 0, 28	# Original operation
+  cmplwi <reg>, CustomSound_Lo;  blt- %END%
+  li r4, 0x270F					# \ Mimic Sound 0x270F
+  rlwinm r0, r4, 3, 0, 28		# /
+}
+.macro lwi(<reg>, <val>)
+{
+    .alias  temp_Hi = <val> / 0x10000
+    .alias  temp_Lo = <val> & 0xFFFF
+    lis     <reg>, temp_Hi
+    ori     <reg>, <reg>, temp_Lo
+}
+.macro lwd(<reg>, <addr>)
+{
+    .alias  temp_Lo = <addr> & 0xFFFF
+    .alias  temp_Hi_ = <addr> / 0x10000
+    .alias  temp_r = temp_Lo / 0x8000
+    .alias  temp_Hi = temp_Hi_ + temp_r
+    lis     <reg>, temp_Hi
+    lwz     <reg>, temp_Lo(<reg>)
+}
+###################################
 HOOK @ $801C7900
 {
   rlwinm r0, r30, 3, 0, 28	# Original operation
@@ -282,151 +318,28 @@ HOOK @ $801CA314
   cmplwi r29, CustomSoundbankRange;  blt- %END%
   li r0, 0x0
 }
-HOOK @ $80079F90	#### During sound initialization
+#### During sound initialization
+HOOK @ $80079F90	
 {
-	lis r4, 0x8054 
+	%lwi(r4,PointerBlock)
 	addi r5, r31, 0x474	# Beginning of soundbank allocations
-	stw r5, -0x1304(r4)	# Store to 8053ECFC
+	stw r5, -0x4(r4)	# Store to 8053ECFC
 	mr r4, r3		# Original operation
 }
-### Soundbank loading
-HOOK @ $801C836C
+HOOK @ $8007A194
 {
-  mtctr r12			# Original operation
-  cmplwi r26, CustomSoundbankRange;  blt- %END%
-  
-  lwz r4, 0x18(r31) 	#
-  lwz r4, 0x04(r4)		#
-  lwz r4, 0x28(r4)		# RSAR info
-  addis r4, r4, 0xE		#
-  addi  r4, r4, 0x3C6C	# Desired Offset: E3C6C 
-  
-  addi r5, r26, 0x7		# Soundbank ID + 7
-  stw r5, 0(r4)
-
-}
-HOOK @ $801C8374
-{
-  cmpwi r26, CustomSoundbankRange;  blt- loc_0x34
-  
-  
-  # lwz r15, 0x40(r1)
-  # lwz r15, 0x1C(r15)
-  # lwz r15, 0x94(r15)
-  # lwz r15, 0x490(r15)		# Pointer to mostly unused FRMH sound heap. Commented out as it was actually used by Pokemon Trainer 
-  # addi r15, r15, 0x60		# Fills only up to 0x58 normally
-  
-  stwu r1, -0x30(r1)
-  stw r15, 0x8(r1)
-  stw r14, 0xC(r1)
-  stw r19, 0x10(r1)
-  stw r12, 0x14(r1)
-  stw r11, 0x18(r1)
-  
-    lis r15, 0x8053;  ori r15, r15, 0xED00
-  
-  lwz r14, 0x1C(r25)
-  
-  li r12, 11	# \ Loop 11 times!
-  mtctr r12		# /
-  lwz r12, -0x4(r15)	# Pointer to a table of 11 pointers. Typically at 90DE5CF4.
-  
-  li r19, 0
-  
- loopPass:  
-  lwzx r11, r12, r19
-  cmpw r11, r14		# Check if in the same allocation
-  beq endLoop
-  addi r19, r19, 4
-  bdnz+ loopPass 
- endLoop:
-  mulli r19, r19, 3	# 4 apart -> 12 apart
-  
-  lwz r14, 0x18(r31) 		#
-  lwz r14, 0x04(r14)		#
-  lwz r14, 0x28(r14)		# RSAR info
-  addis r14, r14, 0xE		#
-  addi  r14, r14, 0x3C6C	# Desired Offset: E3C6C  
-  
-  add r15, r15, r19
-  lwz r19, 0x4C(r14)
-  stw r19, 0x00(r15)
-  lwz r19, 0x60(r14)
-  stw r19, 0x04(r15)
-  stw r26, 0x08(r15)	# Soundbank ID
-  
-  lwz r15, 0x8(r1)
-  lwz r14, 0xC(r1)
-  lwz r19, 0x10(r1)
-  lwz r12, 0x14(r1) 
-  lwz r11, 0x18(r1) 
-  lwz r1, 0(r1)
- 
-loc_0x34:
-  cmpwi r3, 0x0			# Original operation
-}
-### Soundbank Unloading
-HOOK @ $80073CC4
-{
-	rlwinm r12, r4, 24, 24, 31 # Filter for bottom half to get allocation index
-	mulli r12, r12, 12	# 0xC bytes of separation
-	lis r11, 0x8053;  ori r11, r11, 0xED00
-	add r12, r11, r12
-	li r0, 0			# \
-	stw r0, 0x0(r12)	# | Clear it for this section!
-	stw r0, 0x4(r12)	# |
-	stw r0, 0x8(r12)	# /
+	%lwi(r27,PointerBlock)	
+	li r3, 5		# Sound Heap (5)
+	li r4, 0x2800	# block size needed is 0x28 * 0x100
+	bla 0x0249E4
+	stw r3, -0x8(r27)
 	
-	lwz r3, 0x2D0(r3)	# Original operation
+  li r0, 0 # Original operation
 }
 ### Soundbank address info
-HOOK @ $801C7AB4
-{
-  lwz r0, 0xC(r3)	# Original operation
-  cmplwi r29, CustomSoundbankRange;  blt- %END%
-
-	stwu r1, -0x10(r1)
-	stw r4, 0x8(r1)
-	stw r5, 0xC(r1)
-  
-  lis r3, 0x8053;  ori r3, r3, 0xED00
-  
-  li r12, 11	# \ Loop 11 times!
-  mtctr r12		# /
-  
-  li r5, 8		# 3rd word for each 0xC set of values
- loopPass:  
-  lwzx r4, r3, r5
-  cmpw r4, r29		# Check if in the same allocation
-  beq- endLoop		# The checks are in order from highest address to lowest!
-  addi r5, r5, 12
-  bdnz+ loopPass 
- endLoop:
-  subi r5, r5, 8	# Acccess address of first member of size-0xC struct design
-  add r12, r3, r5
-
-	lwz r4, 0x8(r1)
-	lwz r5, 0xC(r1)
-	lwz r1, 0(r1)
-  
-  
-  li r0, 0	# Pointer to voices within bank (Start of it). Without this, it could get invalid values before.
-  cmplwi r30, 0;  beq- %END% 	# Use below to get index for SFX
-
-  lwz r0, 0x04(r12)
-
-}
-HOOK @ $801C7ABC
-{
-  lwz r0, 0x10(r3)	# Original operation
-  cmplwi r29, CustomSoundbankRange;  blt- %END%
-
-  lwz r0, 0x00(r12)
-}
 HOOK @ $801C7A00
 {
-  # lis r4, 0x901A;  ori r4, r4, 0x3090
-  lis r4, 0x801C; lwz r4, 0x75A4(r4)
+  %lwd(r4,TableBlockPtr)
   lis r0, 0x0;  ori r0, r0, 0xC0DE
   # stw r0, 0(r4)
   stw r0, -0xC(r4)
@@ -434,7 +347,7 @@ HOOK @ $801C7A00
   cmplwi r29, CustomSoundbankRange  
   blt- %END%
   cmpwi r0, MrResettiBank; beq %END%  
-  li r0, 0x244
+  li r0, MaxCustomBank
 }
 HOOK @ $801C7A14
 {
@@ -442,13 +355,14 @@ HOOK @ $801C7A14
   cmplwi r29, CustomSoundbankRange;  blt- %END%
   li r0, CustomSoundbankRange
   rlwinm r0, r0, 3, 0, 28
-  
+/*  
   lwz r5, 0x28(r28) 	# RSAR info
   addis r5, r5, 0xE		#
   addi  r5, r5, 0x3C6C	# Desired Offset: E3C6C   
   
   addi r4, r29, 0x7
   stw r4, 0(r5)
+*/
 }
 ### Sound Data
 HOOK @ $801C7C2C
@@ -487,21 +401,45 @@ HOOK @ $801C7570
 {
   cmplwi r30, CustomSound_Lo;  blt- loc_0x10
   
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); addi r3, r3, 0x84 # Table 2 + 0x3C
+  %lwd(r3,TableBlockPtr); addi r3, r3, Table2Offset+0x3C
 loc_0x10:
   lwz r0, 0(r3)			# Original operation
+}
+# Manipulate custom banks into accessing a new table
+HOOK @ $801C7A8C
+{
+	cmpwi r29, CustomSoundbankRange; blt+ Normal
+	subi r3, r29, CustomSoundbankRange # Custom bank
+	mulli r4, r3, 0x28  # Soundbanks are assumed separated by 0x14 * 2 if based on Snake
+	mulli r5, r30, 0x14
+	add r4, r4, r5	# A total of 2 banks in each custom soundbank
+	%lwi(r3,PointerBlock)
+	lwz r3, -8(r3)
+	add r3, r3, r4
+Normal:
+	cmpwi r3, 0 # Original operation
 }
 ### More Sound Info Data
 HOOK @ $801C73CC
 {  
-  lis r4, 0x801C; lwz r4, 0x75A4(r4); lwz r0, -0xC(r4) 
+  lwz r0, 0(r3) # Sound Count in entire RSAR (i.e. the Wii Menu has 16 and NTSC-U's main brsar has 10348)
+  cmplwi r0, 0x1000 # 
+  blt- %END%	# Don't do anything to the smaller RSARs for Mr. Resetti and the Home Menu!
+  mr r6, r3 # We need to keep this
+  lwz r5, 0x28(r29)
+  lbz r3, 0x20(r5)
+  lwz r4, 0x24(r5)
+  bla 0x1D3698
+  addi r4, r3, 0xA20	# 0x144 * 8 = 0xA20
+  lbz r3, 4(r4)			# Normally 1 for "Indirect". 0 is "Direct"
+  lwz r4, 8(r4)			# Normally E3C6C
+  lwz r5, 0x28(r29)
+  bla 0x1D3698			# Gets pointer info for bank 144
+  addi r8, r3, 0x10		# Desired Offset: E3C7C (E3C6C+10)
+  %lwd(r4,TableBlockPtr); lwz r0, -0xC(r4) 
   cmplwi r0, 0xC0DE;  bne- loc_0x68
-   
-  # r4 has pointer to Table 1 already
-  
-  lwz r8, 0x28(r29) 	# RSAR info
-  addis r8, r8, 0xE		#
-  addi  r8, r8, 0x3C7C	# Desired Offset: E3C7C (E3C6C+10)
+  lwz r0, 0x18(r8); cmpwi r0, 2; beq- loc_0x68 # Can corrupt soundbanks if initialized more than once!
+  # r4 has pointer to Table 1
   
 loc_0x24:
   lwz r0, 0(r4);  cmplwi r0, 0x4321;  beq- loc_0x40	
@@ -520,15 +458,16 @@ loc_0x40:
   lwz r0, 16(r4)
   stw r0, 32(r8)
   lwz r0, 20(r4)
-  # stw r0, 40(r8) # Unnecessary and can break soundbank loading.
+  stw r0, 40(r8)
 
 loc_0x68:
   cmplwi r30, normalMusic_Lo;  blt- loc_0x84		# Branch if a normal sound effect
   lis r0, 0x0;  ori r0, r0, 0xC0DE
-  lis r4, 0x801C; lwz r4, 0x75A4(r4)
+  %lwd(r4,TableBlockPtr)
   stw r0, -0xC(r4)
 
 loc_0x84:
+  mr r3, r6			# restore r3
   lwz r0, 0(r3)		# Original operation
   cmplwi r30, CustomSound_Lo;  blt- %END%		# TODO: Probably need to set upper bound so music can read this
   li r0, 0xE5				# \ E500: CustomSound_Hi
@@ -557,12 +496,12 @@ bankLoop:
   
   cmpwi r3, 0x2F	# See if the range is 4000-402E (Voice) or 402F-40A4 (SFX)
   
-  lis r3, 0x801C; lwz r3, 0x75A4(r3) 
-  addi r3, r3, 0x48	# Table 2
+  %lwd(r3,TableBlockPtr)
+  addi r3, r3, Table2Offset	# Table 2
 
   bge- isSFX
 isVoice:
-  addi r3, r3, 0x48	# Table 3
+  addi r3, r3, Table2Size	# Table 3
 isSFX:
   lwz r4, 4(r3)
   add r4, r4, r0	# force to be 0x6000+Soundbank if SFX or 0x7000+Soundbank if Voice
@@ -587,7 +526,7 @@ HOOK @ $801C7318
 {
   cmplwi r31, CustomSound_Lo;  blt- loc_0x10
 
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); addi r3, r3, 0x48	# Table 2
+  %lwd(r3,TableBlockPtr); addi r3, r3, Table2Offset # Table 2
 loc_0x10:
   lbz r0, 0x16(r3)		# Original operation
 }
@@ -611,7 +550,7 @@ HOOK @ $801C80A8
   cmplwi r31, CustomSound_Lo;  blt- loc_0x18 # min sound ID
   cmplwi r31, CustomSound_Hi;  bge- loc_0x18 # max sound ID
 
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); addi r3, r3, 0x48	# Table 2
+  %lwd(r3,TableBlockPtr); addi r3, r3, Table2Offset # Table 2
 loc_0x18:
   lwz r4, 0x18(r3)	# Original operation
 }
@@ -642,9 +581,9 @@ loc_0x28:
 HOOK @ $801C7D34
 {
   cmplwi r31, 0x6000;  blt- loc_0x20
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); addi r3, r3, 0x100 # Table 5
+  %lwd(r3,TableBlockPtr); addi r3, r3, Table5Offset # Table 5
   cmplwi r31, 0x7000;  blt- loc_0x1C
-  subi r3, r3, 0x28 # Table 4
+  subi r3, r3, Table4Size # Table 4
 loc_0x1C:
   mr r30, r3
 
@@ -673,9 +612,9 @@ loc_0x24:
 HOOK @ $801C7E38
 {
   cmplwi r29, 0x6000;  blt- loc_0x20
-  lis r3, 0x801C; lwz r3, 0x75A4(r3); addi r3, r3, 0x100 # Table 5
+  %lwd(r3,TableBlockPtr); addi r3, r3, Table5Offset # Table 5
   cmplwi r29, 0x7000;  blt- loc_0x1C
-  subi r3, r3, 0x28 # Table 4
+  subi r3, r3, Table4Size # Table 4
 
 loc_0x1C:
   mr r4, r3
@@ -688,7 +627,7 @@ HOOK @ $801C7E94
   lwz r0, 0(r3)		# Original operation
   cmplwi r29, 0x6000;  blt- %END%
   
-  lis r4, 0x801C; lwz r4, 0x75A4(r4); lwz r0, -0x8(r4)
+  %lwd(r4,TableBlockPtr); lwz r0, -0x8(r4)
   
   subi r4, r29, 0x6000
   cmplwi r29, 0x7000;  blt- loc_0x28
@@ -844,15 +783,15 @@ skipThree:
 end:
   cmpwi r0, 0
 }
-#######################################
-[Project+] Sawnd Pop Fix V5 [DukeItOut]
-#######################################
+########################################
+[Project+] Sawnd Pop Fix V5b [DukeItOut]
+########################################
 HOOK @ $801D3760
 {
   lbz r12, 0x1(r4)		// loop flag
   lhz r0, 0x4(r4)		// sample rate
   lwz r4, 0xC(r4)		// the original operation
-  cmplwi r4, 512;  blt- %END%	// Sample size 512 or less?
+  cmpwi r4, 512;  blt- %END%	// Sample size 512 or less? Can also be a pointer for a callback!
   cmplwi r12, 1; beq- loops	//skip looped samples
   b fixRate
 loops:

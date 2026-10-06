@@ -1,5 +1,11 @@
 ##################################################################################
-[Project M] Half Damage from Outside Sources While Grabbed v1.3 [Magus, DukeItOut]
+[Project M] Half Damage from Outside Sources While Grabbed v1.6 [Magus, DukeItOut]
+##################################################################################
+# 1.4: Stabilized code
+# 1.5: This code now sets RA-Basic[0] and [1] to a pointer and type for KB
+# 	stacking to reference, but it will be quickly discarded afterwards!
+# 1.6: Sets RA-Basic[2] to the ID of the prop that attacked if a character,
+#	item or projectile.
 ##################################################################################
 HOOK @ $80769E58
 {
@@ -18,12 +24,39 @@ HOOK @ $80769E58
   
   
   lwz r4, 0x60(r4)	
+  
+  lwz r6, 0x28(r24)		# Owner of hitbox
+  lwz r5, 0x70(r4)		# \
+  lwz r5, 0x20(r5)		# | Store it in AIS Var-0x30!
+  lwz r5, 0x0C(r5)		# |
+  lwz r5, 0x2D0(r5)		# |
+  stw r6, 0x30(r5)		# /
+  lwz r3, 0x08(r6)		# \
+  lwz r3, 0x3C(r3)		# |
+  lwz r3, 0xA4(r3)		# | Get type of owner of hitbox.
+  mtctr r3				# |
+  bctrl					# /
+  stw r3, 0x34(r5)		# Store type to AIS Var-0x34!
+  lwz r11, 0x08(r6)		# Pointer to Object Info
+  cmpwi r3, 0; beq+ charID	# if it is type 0, it is a character
+  cmpwi r3, 2; beq+ wepID	# if it is type 2, it is a weapon/article
+  cmpwi r3, 4; bne- notWeaponArticle # type 4 is an item 
+itemID:
+  lwz r3, 0x8C0(r11)	# Get the item ID!
+  b setID
+wepID:  
+  lwz r3, 0xB8(r11)		# Get the article ID!
+  b setID
+charID:
+  lwz r3, 0x110(r11)	# Get the character ID!
+setID:
+  stw r3, 0x38(r5)		# Store into AIS Var-0x38!
+notWeaponArticle:
   lwz r5, 0x5C(r4)		  # \
   lwz r5, 0x94(r5)		  # | Get character grabbing
   cmpwi r5, 0; beq- %END% # | (if none, don't bother!)
   lwz r5, 0x44(r5)		  # /
-  lwz r6, 0x28(r24)		# \ Owner of hitbox (if a projectile, won't match character grabbing)
-  cmpw r5, r6			# /
+  cmpw r5, r6			# Check if matches who is grabbing. (Projectiles do not count)
   beq- %END%			# If it matches, don't halve damage!
 	
 halveDamage:	
@@ -113,4 +146,18 @@ HOOK @ $807531AC
   lwz r5, 0x14(r5)	# |
   stfs f1, 0x18(r5) # /
   mr r5, r27
+}
+
+##########################################
+Don't Turn When Grabbing Ledge [DukeItOut]
+##########################################
+HOOK @ $8087A65C
+{
+
+    lwz r3, 0x54(r31)    # Turn module
+    lwz r12, 0x00(r3)    # \
+    lwz r12, 0x14(r12)   # / End Turn
+    mtctr r12
+    bctrl             
+    lwz r3, 0xD8(r31) # Variant of original operation    
 }
