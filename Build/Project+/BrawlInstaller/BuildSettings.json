@@ -1963,15 +1963,15 @@
         "Width": null,
         "Height": null
       },
-      "Format": 0,
+      "Format": 14,
       "FirstOnly": false,
       "SeparateFiles": false,
       "CompressionType": 0,
       "FileType": 1,
       "AlwaysInheritStyle": false,
       "Required": false,
-      "Enabled": false,
-      "Selectable": false,
+      "Enabled": true,
+      "Selectable": true,
       "AlwaysCreateArchive": true,
       "PaletteCount": 256,
       "ImportTextures": true
