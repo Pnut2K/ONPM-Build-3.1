@@ -105,7 +105,7 @@ noModelUpdate:
 
 noProcess:
 	lwz r3, 0x5C(r30)	# Prev Diamond that we are going to restore
-	addi r4, r1, 0x1C
+	addi r4, r1, 0x20
 	lwz r12, 0(r3)
 	lwz r12, 0x40(r12)
 	mtctr r12
@@ -439,44 +439,43 @@ Alloy:
 RealChar:
 	#### Rayscan to fix glitch where the below will clip through stage corners. Very annoying!
 	stwu r1, -0x80(r1)
+	
 	lwz r5, 0x88(r30)	# speed
 	lwz r4, 0x4C(r5)
 	psq_l f1, 0x8(r4), 0, 0	# XY speed of air dodge
 	psq_st f1, 0x8(r1), 0, 0
 
-	lwz r3, 0x18(r30)
-	psq_l f2, 0x18(r3), 0, 0 # prev XY positon (current position at 0x0C), uses for snappier movement but tends to make WDs shorter if not skipped.
-	lis r3, 128		# 0.5, 0.0 aka 128/256 & 0
-	stw r3, 0x10(r1)
-	psq_l f3, 0x10(r1), 0, 7 # Signed 16-bit to Paired Single Float Conversion  (type 7: value / 256)
-	lwz r3, 0x18(r30)			# \ Character direction in paired single 0, 1.0 in single 1
-	psq_l f4, 0x40(r3), 1, 0	# /	
-	ps_mul f3, f3, f4	# Force the offset in f3 to be based on character directon
-	ps_add f3, f2, f3	# Marginally move it forwards to avoid accidental perfect ledge misses. 
-						# People won't be able to notice the small loss in precision.
-	psq_st f3, 0x10(r1), 0, 0
-	li r3, 0x00F8	# 0.0, -8.0
-	sth r3, 0x20(r1)
-	psq_l f3, 0x20(r1), 0, 4	# Signed 8-Bit to Paired Single Float Conversion (type 4)
-	psq_st f3, 0x20(r1), 0, 0 	# Store that since we want to test for a floor underneath the character!
-	ps_add f4, f2, f3
-	psq_st f4, 0x28(r1), 0, 0	# Expected Position to End Up
+	lfs f0, 0x10(r13)	# 0.0
+	stfs f0, 0x8(r1)	# 0 X Speed for Ray Scan
+	lfs f1, 0x8(r4)		# X Speed
+	lfs f2, 0xC(r4)		# Y Speed
+	stfs f2, 0xC(r1) 	# Y Speed still normally used!	
 	
-	## Test if will be airborne after ##
-	addi r3, r1, 0x28	# Expected XY position
-	addi r4, r1, 0x20	# See if any collisons are 8 units below
+	lwz r3, 0x1C(r30)
+	lwz r3, 0x28(r3)
+	lwz r3, 0x10(r3)
+	lwz r3, 0x5C(r3)	# Prev Diamond (Current at 0x60)
+	lfs f3, 0x14(r3)	# 	Diamond Bottom X
+	stfs f3, 0x18(r1)	# Test 2
+	fadds f3, f1, f3
+	stfs f3, 0x10(r1)	# Test 1
+	lfs f3, 0x18(r3) 	#	Diamond Bottom Y
+	stfs f3, 0x1C(r1)  	# Test 2
+	stfs f3, 0x14(r1)	# Test 1
+
+	## Test True Collision	##
+	addi r3, r1, 0x10	# Test 1
+	addi r4, r1, 0x8	# X = 0, Y Speed for rayscan
 	addi r5, r1, 0x30	# Collision Intersection Point (if any)
 	addi r6, r1, 0x3C	# Collision Normal Vector
 	li r7, 1			# 1 = Check Soft Platforms
-	li r8, 0			# pointer for collision (null in this case to use stage)
+	li r8, 0
 	li r9, 0
 	li r10, 1			# 1 = Test for Platforms at all
 	bla 0x9326d8		# Test for Collision!
-	cmpwi r3, 1
-	beq+ contactFound	# If there is a collision, it will be treated properly by the game!
-						# It doesn't like going off a ledge with this logic for some reason, so do the below to help fix that . . .
-	## Test True Collision	##
-	addi r3, r1, 0x10	# prev XY position
+	cmpwi r3, 0
+	bne- contactFound
+	addi r3, r1, 0x18	# Test 2
 	addi r4, r1, 0x8	# XY speed
 	addi r5, r1, 0x30	# Collision Intersection Point (if any)
 	addi r6, r1, 0x3C	# Collision Normal Vector
@@ -486,17 +485,22 @@ RealChar:
 	li r10, 1			# 1 = Test for Platforms at all
 	bla 0x9326d8		# Test for Collision!
 	cmpwi r3, 0
-	beq+ noContact
-	
+	beq+ noContact	
+contactFound:
 	lwz r3, 0x18(r30)	# Position info
-	lwz r5, 0x88(r30)	# speed
-	lwz r4, 0x4C(r5)
 	psq_l f1, 0x30(r1), 0, 0	# Collision Point
-	psq_l f2, 0x08(r1), 0, 0	# XY speed
+	psq_st f1, 0x0C(r3), 0, 0	# XY
+	lwz r3, 0x1C(r30)
+	lwz r12, 8(r3)
+	li r4, 0
+	lwz r12, 0x1C8(r12)		# ground attach
+	mtctr r12
+	bctrl
 	addi r1, r1, 0x80
+	lwz r5, 0x88(r30)	# speed
+	lfs f2, 0x10(r13)	# 0.0
 	b setPosition
 noContact:
-contactFound:
 	addi r1, r1, 0x80
 	####
 	lwz r5, 0x88(r30)	# speed
@@ -505,8 +509,8 @@ contactFound:
 	lwz r3, 0x18(r30)
 	psq_l f1, 0x18(r3), 0, 0	# Prev XY position
 	ps_add f1, f1, f2
-setPosition:
 	psq_st f1, 0x0C(r3), 0, 0
+setPosition:
 	lfs f1, 0x10(r13)	# 0.0
 	lwz r4, 0x58(r5)
 	psq_st f1, 0x08(r4), 0, 0	# Clear normal speed!
