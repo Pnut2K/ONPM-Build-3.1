@@ -78,8 +78,7 @@ SKINS
 MARIO
 07 - Project M Mario by Erg
 08 - Project+ Mario by Erg
-AltR - Bee Mario by SJS
-AltZ - MF DOOM Mario by SJS, with updates by wult
+AltZ - MF DOOM Mario by SJS, with edits by wult
 
 DONKEY KONG
 06 - Funky Kong by Dapperman, tyleto, SJS

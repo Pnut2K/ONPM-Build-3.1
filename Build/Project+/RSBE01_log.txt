@@ -490,33 +490,33 @@ Source/Project+/Physics.asm
 	Rising Aerial Fix [DukeItOut] @ Off 0x13878
 	Ledge Release Applies Gravity [DukeItOut] @ Off 0x138c0
 	Air Dodges Calculate One Frame Earlier [DukeItOut, Fudgepop01, Eon] @ Off 0x139f8
-	Landing Fix [Fudgepop01, DukeItOut] @ Off 0x13c60
-	Jumps Calculate One Frame Earlier [DukeItOut] @ Off 0x13d18
-	Shield Forward Angle Fix [DukeItOut] @ Off 0x13e10
-	Duo Sticky Object Fix [DukeItOut] @ Off 0x13e50
-	Instant Fastfalls [Fudgepop01, DukeItOut] @ Off 0x13ea0
-	Aerial/Onstage State 8 uses Momentum to Decide [DukeItOut] @ Off 0x13f60
-	Teeter Trigger Tweak [DukeItOut] @ Off 0x13fb0
+	Landing Fix [Fudgepop01, DukeItOut] @ Off 0x13c88
+	Jumps Calculate One Frame Earlier [DukeItOut] @ Off 0x13d40
+	Shield Forward Angle Fix [DukeItOut] @ Off 0x13e38
+	Duo Sticky Object Fix [DukeItOut] @ Off 0x13e78
+	Instant Fastfalls [Fudgepop01, DukeItOut] @ Off 0x13ec8
+	Aerial/Onstage State 8 uses Momentum to Decide [DukeItOut] @ Off 0x13f88
+	Teeter Trigger Tweak [DukeItOut] @ Off 0x13fd8
 Source/Community/Heritage.asm
-	Access Fighter Ancestor [DukeItOut] @ Off 0x13fe0
+	Access Fighter Ancestor [DukeItOut] @ Off 0x14008
 Source/Community/ItemEx.asm
-	ItemEx Clone Engine v2.52 [Sammi Husky, Kapedani] @ Off 0x140a0
+	ItemEx Clone Engine v2.52 [Sammi Husky, Kapedani] @ Off 0x140c8
 	Source/Community/DoubleCherry.asm
-		Cherry Double v1.2 [Kapedani] @ Off 0x176f8
-	Dragoon Parts Drops like a Normal Item With Multiplier If Parts Have Dropped [Kapedani]  @ Off 0x18428
-	Team Healer Always Heals Teammates [Kapedani] @ Off 0x18498
-	Touch Items Notify Outside Event Get Item [Kapedani] @ Off 0x18528
-	Every Item Can Have Collision v2 [Kapedani] @ Off 0x18568
-	Every Item Can Have Physics [Kapedani] @ Off 0x18590
-	Item Mayhem Mode (Item Switch Edition) + Butterfingers [MarioDox, DukeItOut, Kapedani] @ Off 0x18598
-	Passive Aggressive Mode [Kapedani] @ Off 0x186f8
-	All Assists are Unlocked [Kapedani] @ Off 0x18b40
-	ItemEx Mayhem and Passive Aggression Modes default to Off on Boot [Kapedani] @ Off 0x18b50
-	utArchivereqLoad 4th Parameter as 2 forces read instead of clone [DukeItOut, Kapedani] @ Off 0x18b88
+		Cherry Double v1.2 [Kapedani] @ Off 0x17720
+	Dragoon Parts Drops like a Normal Item With Multiplier If Parts Have Dropped [Kapedani]  @ Off 0x18450
+	Team Healer Always Heals Teammates [Kapedani] @ Off 0x184c0
+	Touch Items Notify Outside Event Get Item [Kapedani] @ Off 0x18550
+	Every Item Can Have Collision v2 [Kapedani] @ Off 0x18590
+	Every Item Can Have Physics [Kapedani] @ Off 0x185b8
+	Item Mayhem Mode (Item Switch Edition) + Butterfingers [MarioDox, DukeItOut, Kapedani] @ Off 0x185c0
+	Passive Aggressive Mode [Kapedani] @ Off 0x18720
+	All Assists are Unlocked [Kapedani] @ Off 0x18b68
+	ItemEx Mayhem and Passive Aggression Modes default to Off on Boot [Kapedani] @ Off 0x18b78
+	utArchivereqLoad 4th Parameter as 2 forces read instead of clone [DukeItOut, Kapedani] @ Off 0x18bb0
 Source/Community/Syringe.asm
-	Don't clear memory on game launch [Sammi Husky] @ Off 0x18bb0
-	run codehandler after initializing memory [Sammi Husky] @ Off 0x18bc0
-	run codehandler after loading rels [Sammi Husky] @ Off 0x18bf0
-	Syringe Core Loader [Sammi Husky, DukeItOut] @ Off 0x18c30
+	Don't clear memory on game launch [Sammi Husky] @ Off 0x18bd8
+	run codehandler after initializing memory [Sammi Husky] @ Off 0x18be8
+	run codehandler after loading rels [Sammi Husky] @ Off 0x18c18
+	Syringe Core Loader [Sammi Husky, DukeItOut] @ Off 0x18c58
 Source/Project+/MultiGCT.asm
-	Expansion GCT Available [DukeItOut] @ Off 0x18cf8
+	Expansion GCT Available [DukeItOut] @ Off 0x18d20
