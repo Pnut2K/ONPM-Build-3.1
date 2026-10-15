@@ -1,6 +1,6 @@
-=====================================
+========================================
 Guide for Adding Sonic Costumes
-=====================================
+========================================
 
 Sonic uses individual Etc files for each costume. These files include a GFX bank, the "ef_sonicX[..]" ARC, that stores textures & models for his runtrail, special move auras, and other color data.
 

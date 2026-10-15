@@ -348,4 +348,4 @@ CSS + SSS by Pnut
 
 :schmuckThis: Star texture by Pnut
 
-"Ayo Blitz!" replacement for "Ready to Fight" by Pnut
+"AYO BLITZ!" replacement text for "READY TO FIGHT!" by Pnut

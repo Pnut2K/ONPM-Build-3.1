@@ -103,8 +103,8 @@ Custom Float IC-Basics[DukeItOut]
 # Custom float value returns
 #
 # IC-Basic[1100] = Current Knockback Speed
-# IC-Basic[1101] = Relative X Force Speed (used by wavedashing and landing)
-# IC-Basic[1102] = Relative X Speed (surprisingly isn't a thing in Brawl for IC-Basics??????)
+# IC-Basic[1101] = Relative X Speed (surprisingly isn't a thing in Brawl for IC-Basics?)
+# IC-Basic[1102] = Relative X Force Speed (used by wavedashing and landing)
 ##########################################
 HOOK @ $808548EC
 {

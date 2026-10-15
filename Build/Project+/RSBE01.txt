@@ -1158,10 +1158,11 @@ op fneg	f2,f2 	@ $80794634
 op fmr	f0,f2 	@ $8079463C
 
 ##################################################################################################
-Traction 2x on Non-Dash Character Momentum > Max Walking Speed 1.2 [Magus, DukeItOut, White Sheep]
+Traction 2x on Non-Dash Character Momentum > Max Walking Speed 1.3 [Magus, DukeItOut, White Sheep]
 ##################################################################################################
 # 1.1: Only applies to more common actions instead of all grounded
 # 1.2: Landing now is given its own traction modifier instead of 2X
+# 1.3: Disabled unique landing traction modifier but retained dash and run brake not having 2X
 ##################################################################################################
 HOOK @ $80794D3C
 { 
@@ -1191,7 +1192,7 @@ calc2xTraction:
   fabs f0, f0;  fcmpo cr0, f0, f1;  ble- normal # Compare absolute X Speed with max walk speed
   lfs f0, 0x08(r30)    # X Movement Speed (again!)
   
-  
+/*
   cmpwi r6, 0x21; bne+ notAirDodgeLanding # \
   cmpwi r5, 0x19; bne+ notAirDodgeLanding # /
 
@@ -1215,6 +1216,7 @@ landing:
   b calcTract
 
 notAirDodgeLanding: 
+*/
   li r3, 512			# 512 / 256 (2.0)
   sth r3, 0x8(r1)
   psq_l f1, 0x8(r1), 0, 7 # Signed 16-bit to Paired Single Float Conversion  (type 7: value / 256)
