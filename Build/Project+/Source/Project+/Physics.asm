@@ -424,7 +424,8 @@ Air Dodges Calculate One Frame Earlier [DukeItOut, Fudgepop01, Eon]
 # V2.4: Disabled Alloys doing this due to related crash
 # V2.5: Altered feel again to not be dependent on either.
 # V2.6: Further stability adjustments.
-####################################################################
+# V2.7: Addressed oversight that could prevent landing being detected.
+######################################################################
 op b 0x70 @ $80884F68	# \
 op b 0x64 @ $80884F74	# |
 op b 0x40 @ $80884F98	# |
@@ -454,7 +455,13 @@ RealChar:
 	lwz r3, 0x1C(r30)
 	lwz r3, 0x28(r3)
 	lwz r3, 0x10(r3)
-	lwz r3, 0x5C(r3)	# Prev Diamond (Current at 0x60)
+	lwz r4, 0x60(r3)	# Current Diamond
+	lfs f4, 0x14(r4)	#	Diamond Bottom X
+	fadds f4, f1, f4	
+	stfs f4, 0x20(r1)	# Test 3
+	lfs f4, 0x18(r4)	#	Diamond Bottom Y
+	stfs f4, 0x24(r1)	# Test 3
+	lwz r3, 0x5C(r3)	# Prev Diamond
 	lfs f3, 0x14(r3)	# 	Diamond Bottom X
 	stfs f3, 0x18(r1)	# Test 2
 	fadds f3, f1, f3
@@ -485,17 +492,34 @@ RealChar:
 	li r10, 1			# 1 = Test for Platforms at all
 	bla 0x9326d8		# Test for Collision!
 	cmpwi r3, 0
+	bne- contactFound
+	addi r3, r1, 0x20	# Test 3
+	addi r4, r1, 0x8	# XY speed
+	addi r5, r1, 0x30	# Collision Intersection Point (if any)
+	addi r6, r1, 0x3C	# Collision Normal Vector
+	li r7, 1			# 1 = Check Soft Platforms
+	li r8, 0
+	li r9, 0
+	li r10, 1			# 1 = Test for Platforms at all
+	bla 0x9326d8		# Test for Collision!
+	cmpwi r3, 0
 	beq+ noContact	
 contactFound:
 	lwz r3, 0x18(r30)	# Position info
 	psq_l f1, 0x30(r1), 0, 0	# Collision Point
 	psq_st f1, 0x0C(r3), 0, 0	# XY
-	lwz r3, 0x1C(r30)
-	lwz r12, 8(r3)
 	li r4, 0
-	lwz r12, 0x1C8(r12)		# ground attach
-	mtctr r12
-	bctrl
+	lwz r3, 0x70(r30)
+	lwz r3, 0x20(r3)
+	lwz r3, 0x0C(r3)
+	lwz r3, 0x2D0(r3)
+	stw r4, 0x10(r3)	# Frames airborne
+	stw r4, 0x14(r3)	# Frames grounded
+
+	lwz r3, 0x1C(r30)
+	lwz r3, 0x28(r3)
+	lwz r3, 0x10(r3)
+	bla 0x134CA0		# collision test (see 80112BE4)
 	addi r1, r1, 0x80
 	lwz r5, 0x88(r30)	# speed
 	lfs f2, 0x10(r13)	# 0.0
