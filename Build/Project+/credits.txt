@@ -281,7 +281,7 @@ STAGES
 
 POKEMON STADIUM 2
 Base - ONPM PS2 by Pnut, with updates by white sheep
-L - Da Greenhouse PS2 by Pnut
+Z - Da Greenhouse PS2 by Pnut
  - Based off Pokemon Stadium 2 by the PMDT, with credit to Mewtwo2000 for shadows and background fixes [optimization and lighting edits by mawwwk, Layell, right platform shader fix by Kirbeast]
 
 SMASHVILLE
@@ -290,40 +290,34 @@ Base - Autumn Smashville by Pnut
 
 GREAT FAIRY FOUNTAIN by Pnut
 
-HYRULE CASTLE
-Base - ONPM Hyrule Castle by Pnut, with updates by white sheep
- - Based off Hyrule Castle Ware by DukeItOut, MarioDox with credit to Dranakar, davidvkimball, WorseDoughnut, Yohan1044, Kirbeast, Puzzled, DukeItOut, mawwwk with credit to the PMDT, optimizations by Layell
-
 DIVE TO THE HEART by Pnut, with updates by white sheep
  - Based off Legacy MP+ Dive to the Heart (original creator unknown)
 
 SAFFRON CITY
 Base - ONPM Saffron City (Night) by white sheep
-L - ONPM Saffron City by white sheep
 R - ONPM Saffron City (Day) by white sheep
  - Based off Saffron ToT by mawwwk, MarioDox, DukeItOut, Dranakar, davidvkimball, Scout with credit to Yohan1044, Ryztiq and the PMDT, optimizations by Layell
+L - ONPM Saffron City by white sheep
+Z - ONPM Hyrule Castle by Pnut, with updates by white sheep
+ - Based off Hyrule Castle Ware by DukeItOut, MarioDox with credit to Dranakar, davidvkimball, WorseDoughnut, Yohan1044, Kirbeast, Puzzled, DukeItOut, mawwwk with credit to the PMDT, optimizations by Layell
 
 KONGO JUNGLE
 Base - ONPM Kongo Jungle by Pnut, with module coding by Kapedani; updates by Pnut and white sheep, with credit to DukeItOut
-R - Barrelless Kongo Jungle by white sheep
  - Based off T+ Kongo Jungle HD Dreamland by Yorch
+R - Bob-Omb Battlefield 1:1 by Pnut
+ - Based off Bob-Omb Battlefield by Nezha the Scout, Flambo237, MarioDox, Puzzled, Survivian, Electropolitan with credit to Flambo, KingJigglypuff, Kirbeast, Layell, CBM Discord server
 
 DRACULA'S CASTLE
 Base - ONPM Dracula's Castle by Pnut
  - Based off Dracula's Castle by the PMDT with credit to mawwwk
-
-BOB-OMB BATTLEFIELD
-Base - Kongo Jungle 1:1 by Pnut, with updates by white sheep
-R - Barrelless Kongo Jungle 1:1 by white sheep
-L - ONPM Bob-Omb Battlefield by Pnut, with updates by white sheep
- - Based off Bob-Omb Battlefield by Nezha the Scout, Flambo237, MarioDox, Puzzled, Survivian, Electropolitan with credit to Flambo, KingJigglypuff, Kirbeast, Layell, CBM Discord server
-
-RUMBLE FALLS
-Base - ONPM Dracula's Castle 1:1 by white sheep
+R - Rumble Falls 1:1 by white sheep
  - Based off Rumble Falls Castle by Motobug, with credit to MarioDox, mnnaz05, Dranakar, Nezha the Scout, Ryztiq, davidvkimball, Puzzled, PMDT, optimizations by Layell
+L - ONPM Saffron City Night 1:1 by white sheep
+Z - ONPM Saffron City Day 1:1 by white sheep
+ - Based off Saffron ToT by mawwwk, MarioDox, DukeItOut, Dranakar, davidvkimball, Scout with credit to Yohan1044, Ryztiq and the PMDT, optimizations by Layell
 
 LYLAT CRUISE
-Base - ONPM Lylat Cruise by Pnut
+Base - ONPM Lylat Cruise by white sheep
  - Based off Flatlat Cruise by WorseDoughnut, soopercool101 with credit to Syvkal & SuperGuzzi
 
 CHAOS ANGEL
@@ -335,11 +329,14 @@ BOWSER'S KEEP by Pnut
  - Carpet texture sourced from vP+ Wario Land
  - Platform model sourced from Legacy MP+ Dive to the Heart
 
-GREEN HILL ZONE
- - New stage icon by Pnut
-
-PHENDRANA
- - Cosmetics sourced from IL Project+ Build
+PHENDRANA (ONPM) by white sheep
+Base - Based off Phendrana Husk by Nezha, KingDraco, Kirbeast, Xerneis, Layell, Potato, Kapedani, Pikamaxi, GoldenNick, GrandAzel, KingJigglypuff, with credit to DukeItOut, Coolguy, PMDT
+R - Hyrule Meadows 1:1
+ - Based off Hyrule Meadows FH by Motobug, mawwwk, with credit to Dranakar, Scout, davidvkimball, DukeItOut, soopercool101, PMDT
+L - Sky Sanctuary 1:1
+ - Based off Sky Sanctuary Husk by Yorch, nnebf, and GRAND AZEL
+Z - Ceres Space Colony 1:1
+ - Based off Ceres Space Colony Husk by Motobug and nnebf
 
 ################
 MENUS
