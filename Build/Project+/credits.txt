@@ -182,6 +182,10 @@ META KNIGHT
 AltZ - SMRPG Mallow Meta Knight by jaystring, with credit to Ridge Troopa
 
 PIT
+21 - Star Classic Dark Pit by ilikepizza107
+40 - Star Phosphora Pit (Red) by SJS, Star, ilikepizza107
+41 - Star Phosphora Pit (Green) by SJS, Star, ilikepizza107
+42 - Star Phosphora Pit (Blue) by SJS, Star, ilikepizza107
 
 ZERO SUIT SAMUS
 
@@ -194,6 +198,9 @@ AltR - Chef Olimar v2 by Windhunter, Motobug, Guttey
 LUCAS
 Standard Lucas STCs from T+ Modder's Pack
 08 - Kumatora Lucas by Ca$ino Wolf
+10 - Star Lucas (Red) by Star, DHS7, Gummi Smash, Mimic, boiko, ssk, bringobrongo, moto
+11 - Star Lucas (Green) by Star, DHS7, Gummi Smash, Mimic, boiko, ssk, bringobrongo, moto
+12 - Star Lucas (Blue) by Star, DHS7, Gummi Smash, Mimic, boiko, ssk, bringobrongo, moto
 40 - Pajama Lucas by Toti, with edits by ilikepizza107 and updates by white sheep
 41 - Pajama Claus by Toti, with edits by ilikepizza107, STCs by white sheep
 45 - wyatt (Virgil) Lucas by ilikepizza107
@@ -297,9 +304,9 @@ SAFFRON CITY
 Base - ONPM Saffron City (Night) by white sheep
 R - ONPM Saffron City (Day) by white sheep
  - Based off Saffron ToT by mawwwk, MarioDox, DukeItOut, Dranakar, davidvkimball, Scout with credit to Yohan1044, Ryztiq and the PMDT, optimizations by Layell
-L - ONPM Saffron City by white sheep
+L - ONPM Saffron City (Day-Night Cycle) by white sheep
 Z - ONPM Hyrule Castle by Pnut, with updates by white sheep
- - Based off Hyrule Castle Ware by DukeItOut, MarioDox with credit to Dranakar, davidvkimball, WorseDoughnut, Yohan1044, Kirbeast, Puzzled, DukeItOut, mawwwk with credit to the PMDT, optimizations by Layell
+ - Based off T+ Hyrule Castle Zone by Yorch
 
 KONGO JUNGLE
 Base - ONPM Kongo Jungle by Pnut, with module coding by Kapedani; updates by Pnut and white sheep, with credit to DukeItOut
@@ -337,6 +344,9 @@ L - Sky Sanctuary 1:1
  - Based off Sky Sanctuary Husk by Yorch, nnebf, and GRAND AZEL
 Z - Ceres Space Colony 1:1
  - Based off Ceres Space Colony Husk by Motobug and nnebf
+
+ANTI-CAMP WARIOWARE by MarioDox and SirGimmick
+ - Edits by Pnut and white sheep
 
 ################
 MENUS
