@@ -98,6 +98,7 @@ PSA edits for Lucas GFX and SFX by white sheep, with contributions by Pnut; cred
      - 1CE Main
      - 1CF Main, SFX
      - 1D0 Main
+     - 1D3 SFX
      - 1D6 GFX
      - 1E2 GFX
      - 1E3 GFX
