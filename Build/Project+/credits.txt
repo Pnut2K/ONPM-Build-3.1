@@ -5,12 +5,12 @@ PAC/PSA
 PSA edits for Permafrost Link ice GFX and SFX by white sheep, with credit to Pnut
  - PSA Edited:
    - Sub Actions:
-     - 58, Main, GFX
-     - 59, Main, GFX
+     - 58 Main, GFX
+     - 59 Main, GFX
      - 66 Main, GFX
      - 6B, GFX
-     - 1DB, Main, GFX, Other
-     - 1DD, Main, GFX, Other
+     - 1DB Main, GFX, Other
+     - 1DD Main, GFX, Other
    - Sub Routine 0xFEC0 (originally 0x17A78)
 
 PSA edit for Motobug Sonic trails by white sheep
@@ -31,43 +31,43 @@ PSA edits for Marth by SSK and KingJigglypuff, ilikepizza107, with updates by wh
  - PSA Added: Sub Routines 0x82C8, 0x8AE0, 0x8EA8
  - PSA Edited: 
    - Sub Actions:
-     - 48, GFX
-     - 49, GFX
-     - 4E, GFX
-     - 50, GFX
-     - 54, GFX
-     - 55, GFX
-     - 58, GFX
-     - 5D, GFX
-     - 60, GFX
-     - 62, GFX
-     - 63, GFX
-     - 64, GFX
-     - 65, GFX
-     - 66, GFX
-     - B0, GFX
-     - B9, GFX
-     - D7, GFX
-     - DC, GFX
-     - E7, GFX
-     - 1D6, GFX
-     - 1D7, GFX
-     - 1D8, GFX
-     - 1D9, GFX
-     - 1DA, GFX
-     - 1DB, GFX
-     - 1DC, GFX
-     - 1DD, GFX
-     - 1DE, GFX
-     - 1E8, GFX
-     - 1EB, GFX
-     - 1EE, GFX
-     - 1EF, GFX
-     - 1F0, GFX
-     - 1F1, GFX
-     - 1F2, GFX
-     - 1F3, GFX
-     - 1F4, GFX
+     - 48 GFX
+     - 49 GFX
+     - 4E GFX
+     - 50 GFX
+     - 54 GFX
+     - 55 GFX
+     - 58 GFX
+     - 5D GFX
+     - 60 GFX
+     - 62 GFX
+     - 63 GFX
+     - 64 GFX
+     - 65 GFX
+     - 66 GFX
+     - B0 GFX
+     - B9 GFX
+     - D7 GFX
+     - DC GFX
+     - E7 GFX
+     - 1D6 GFX
+     - 1D7 GFX
+     - 1D8 GFX
+     - 1D9 GFX
+     - 1DA GFX
+     - 1DB GFX
+     - 1DC GFX
+     - 1DD GFX
+     - 1DE GFX
+     - 1E8 GFX
+     - 1EB GFX
+     - 1EE GFX
+     - 1EF GFX
+     - 1F0 GFX
+     - 1F1 GFX
+     - 1F2 GFX
+     - 1F3 GFX
+     - 1F4 GFX
 
 PSA edits for Rongunshu Marth blue sword trails and Sephiroth Marth silver sword trails by white sheep
  - PSA Edited:
@@ -93,31 +93,33 @@ PSA edits for Lucas GFX and SFX by white sheep, with contributions by Pnut; cred
  - PSA Added: Subroutine 0x12CB8
  - PSA Edited: 
    - Sub Actions: 
-     - 51, Main, GFX
-     - 58, SFX, Other
-     - 1CF, Main, SFX
+     - 51 Main, GFX
+     - 58 SFX, Other
+     - 1CE Main
+     - 1CF Main, SFX
      - 1D0 Main
-     - 1D6, GFX
-     - 1E2, GFX
-     - 1E3, GFX
+     - 1D6 GFX
+     - 1E2 GFX
+     - 1E3 GFX
  - Edits to ef_lucas
  - Edits to 019.sawnd
 
 PSA edits for Ness GFX and SFX by white sheep and Pnut, with credits to PK MASTER, GRAND AZEL, and Endersheep12345 for original assets
  - PSA Edited:
    - Sub Actions: 
-     - 4E, GFX
-     - 58, GFX
-     - 63, Other
-     - 64, GFX
-     - 72, GFX
-     - 73, GFX
-     - 74, GFX
-     - 75, GFX
-     - 1C0, GFX
-     - 1CE, GFX
-     - 1CF, GFX
-     - 1D6, GFX
+     - 4E GFX
+     - 58 GFX
+     - 63 Other
+     - 64 GFX
+     - 72 GFX
+     - 73 GFX
+     - 74 GFX
+     - 75 GFX
+     - 1C0 GFX
+     - 1CE GFX
+     - 1D6 GFX
+     - 1E1 GFX
+     - 1E2 GFX
    - Article 1, Sub Action 0, GFX;
  - ef_ness edits
  - 00E.sawnd edits
@@ -207,6 +209,7 @@ AltR - Jet Jaguar Falcon by Peperoncino
 AltZ - Xavier Renegade Angel by Ryztiq
 
 NESS
+05 - wult Ness by Erg, cosmetics by white sheep
 11 - Cotton Candy Ness by Cotton Candy 2C, with credit to Kazoomageddon, Dapperman, RaitoEX, Project+ Art Team
 25 - Ntire Ness by ilikepizza107
 26 - Rooster Ness by ilikepizza107
