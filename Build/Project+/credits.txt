@@ -8,7 +8,7 @@ PSA edits for Permafrost Link ice GFX and SFX by white sheep, with credit to Pnu
      - 58 Main, GFX
      - 59 Main, GFX
      - 66 Main, GFX
-     - 6B, GFX
+     - 6B GFX
      - 1DB Main, GFX, Other
      - 1DD Main, GFX, Other
    - Sub Routine 0xFEC0 (originally 0x17A78)
@@ -19,12 +19,12 @@ PSA edit for Motobug Sonic trails by white sheep
 PSA edits for Artemis Fox by ilikepizza107, with updates by white sheep
  - PSA Edited: 
     - Sub Actions: 
-      - 1E1, GFX
-      - 1E5, GFX
+      - 1E1 GFX
+      - 1E5 GFX
  - Added Model Data [9]
 
 PSA edit for Toucan Sam Falco, Squawks Toucan Sam Falco, and Orange Brawl Falco by white sheep
- - PSA Edited: Sub Action 1E0, GFX
+ - PSA Edited: Sub Action 1E0 GFX
  - Edits to ef_falco
 
 PSA edits for Marth by SSK and KingJigglypuff, ilikepizza107, with updates by white sheep
@@ -72,21 +72,24 @@ PSA edits for Marth by SSK and KingJigglypuff, ilikepizza107, with updates by wh
 PSA edits for Rongunshu Marth blue sword trails and Sephiroth Marth silver sword trails by white sheep
  - PSA Edited:
    - Sub Routines 0x82C8, 0x8AE0, 0x8EA8
-   - Sub Action 1EF, GFX
+   - Sub Action 1EF GFX
  - Edits to ef_custom44
 
 PSA edits for tia Ike sword trails by ilikepizza107, with updates by white sheep
  - PSA Edited:
    - Sub Routines 0x15118, 0x14BD8, 0x156A0, 0x14A20
-   - Sub Action 1E2, GFX
-   - Article 0x0, Sub Action 0x2, GFX; Article 0x0, Sub Action 0x3, GFX
+   - Sub Action 1E2 GFX
+   - Article 0x0, Sub Action 0x2, GFX; Article 0x0, Sub Action 0x3 GFX
  - Added ef_custom22
 
 PSA edits for Rongunshu Ike blue sword trails and Cloud Ike silver sword trails by white sheep
  - PSA Edited:
    - Sub Routines 0x15118, 0x14BD8, 0x156A0, 0x14A20
-   - Sub Action 0x1E2, GFX
-   - Article 0, Sub Action 0x2, GFX; Article 0, Sub Action 0x3, GFX
+   - Sub Action 0x1E2 GFX
+   - Article 0
+     - Sub Actions
+      - 0x2 GFX
+      - 0x3 GFX
  - Added textures in ef_custom22
 
 PSA edits for Lucas GFX and SFX by white sheep, with contributions by Pnut; credits to GRAND AZEL, Star, and FireStarMarthy for original assets
@@ -121,7 +124,7 @@ PSA edits for Ness GFX and SFX by white sheep and Pnut, with credits to PK MASTE
      - 1D6 GFX
      - 1E1 GFX
      - 1E2 GFX
-   - Article 1, Sub Action 0, GFX;
+   - Article 1, Sub Action 0 GFX;
  - ef_ness edits
  - 00E.sawnd edits
 
@@ -129,10 +132,16 @@ PSA edit for cream Mewtwo trail colours by white sheep
  - PSA Edited: Sub Routine F3E8
 
 PSA edits for Kirby fire hammer by Pnut, with credit to white sheep
- - PSA Edited: Sub Actions 1EC, GFX; 1ED, GFX
+ - PSA Edited: 
+   - Sub Actions:
+     - 1EC GFX
+     - 1ED GFX
 
 PSA edits for Pit magic hit effects by white sheep
- - PSA Edited: Sub Actions 3C, Main; 66, Main
+ - PSA Edited:
+   - Sub Actions:
+     - 3C Main
+     - 66 Main
 
 FitLucario.pac ef_custom97 aura trail texture edit by Pnut
 
