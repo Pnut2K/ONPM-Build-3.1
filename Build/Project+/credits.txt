@@ -152,7 +152,7 @@ SOUND
 DK64 Donkey Kong Voice Pack (original creator unknown)
 
 ################
-SKINS
+SKINS (*: Replaces existing costume)
 ################
 
 MARIO
@@ -212,14 +212,14 @@ LUIGI
 44 - Green E-Gadd Luigi by Sylv, RapM
 
 CAPTAIN FALCON
-34 - Zaza Falcon by Pnut, with credit to Erg; cosmetics by white sheep
+34* - Zaza Falcon by Pnut, with credit to Erg; cosmetics by white sheep
 35 - Phoenix Retro Falcon v2 by white sheep
 36 - Purple Retro Falcon by Layell
 AltR - Jet Jaguar Falcon by Peperoncino
 AltZ - Xavier Renegade Angel by Ryztiq
 
 NESS
-05 - wult Ness by Erg, cosmetics by white sheep
+05* - wult Ness by Erg, cosmetics by white sheep
 11 - Cotton Candy Ness by Cotton Candy 2C, with credit to Kazoomageddon, Dapperman, RaitoEX, Project+ Art Team
 25 - Ntire Ness by ilikepizza107
 26 - Rooster Ness by ilikepizza107
@@ -251,10 +251,10 @@ AltZ - AOSTH Scratch Falco by Bedrock Mods, with credit to Steelclaw
 
 GANONDORF
 New pose renders & Standard Ganon cosmetics by white sheep, using T+ Modder's Pack
-05 - GAME0VER! Ganondorf by SOULLY
 06 - Purple Ganondorf by Moe
 07 - Pretty Pink Ganondorf by Blazingflare
 08 - Zant Vibrant Ganondorf by Shun_One
+09 - GAME0VER! Ganondorf by SOULLY
 AltR - Black Knight Ganondorf by Nao-chan, with credit to Jocky, HAGURE, Eldiran, RamonM64, Nanobuds, and Aafyre
 AltZ - Freddy Fazbear Ganondorf by StupidMarioFan1
 
@@ -313,9 +313,9 @@ LUCARIO
 IKE
 07 - Rongunshu Ike by the Cobalt team
 08 - Trans Ike by Kurukato
-32 - Blitz Ike by Erg
 34 - White Greil Ike by SOULLY
 35 - Black Greil Ike by SOULLY
+36 - Blitz Ike by Erg
 AltR - Zerito Ike by Zerito
 AltZ - Sm4sh Wii U Cloud Revamped Ike by BraveDragonWolf, with credit to ThatTrueStruggle
 
